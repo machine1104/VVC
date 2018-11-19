@@ -7,4 +7,4 @@
 * [Alessandro Tibaldi](https://github.com/Tibbo93)
 
 ### Link Heroku
-https://vienivedicompra.herokuapp.com/
+[Vieni Vedi Compra!](https://vienivedicompra.herokuapp.com/)
