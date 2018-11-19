@@ -1,24 +1,7 @@
-# README
+# VIENI, VEDI, COMPRA!
+## Progetto Laboratorio Architetture Software e Sicurezza Informatica
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Partecipanti
+* [Edoardo Puglisi](https://github.com/machine1104)
+* [Manuel Sabbelli](https://github.com/Sabbo23)
+* [Alessandro Tibaldi](https://github.com/Tibbo93)
