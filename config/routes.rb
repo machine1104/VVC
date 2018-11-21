@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get   '/contatti',          to: 'static_pages#contatti'
   get   '/registrazione',     to: 'users#new'
   
+  resources :users
+  
 end
