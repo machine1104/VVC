@@ -2,6 +2,7 @@
 @import "bootstrap";
 
 $gray-medium-light: #eaeaea;
+$teal-lite: #1bbc9b;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -75,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .navbar-inverse {
-    background: teal;
+    background: $teal-lite;
     .navbar-nav {
       li{
         a {
