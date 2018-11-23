@@ -22,9 +22,10 @@
             <%= f.text_field :comune, class: 'form-control' %>
 
             <%= f.label :data_nascita, "Data di nascita" %>
-            <%= f.text_field :data_nascita, class: 'form-control' %>
+            <%= f.text_field :data_nascita, class: 'form-control', id:"flatpickr-input" %>
 
             <%= f.submit "Crea account", class: "btn btn-primary" %>
         <% end %>
     </div>
+    
 </div>
