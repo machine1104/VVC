@@ -1,1 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+sabbo23:
+  nome: Manuel Sabelli
+  email: sabbo23@down.com
+  password_digest: <%= User.digest('password') %>
