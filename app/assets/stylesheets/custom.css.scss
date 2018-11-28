@@ -90,11 +90,37 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
   
+  .btn-header{
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    color: white;
+    background: $teal-lite;
+    &:hover {
+          background: white;
+          color: teal
+          }
+  
+  }
+  
+  .btn-header1{
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    color: white;
+    background: $teal-lite;
+    &:hover {
+          background: white;
+          color: teal
+        }
+  }
+  
   .dropdown-menu {
     background: $teal-lite;
     li{
       a {
         color: white;
+        
         &:hover {
           background: teal;
           color: white
