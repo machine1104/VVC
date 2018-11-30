@@ -1,4 +1,5 @@
 sabbo23:
   nome: Manuel Sabelli
   email: sabbo23@down.com
+  username: sabbo23
   password_digest: <%= User.digest('password') %>
