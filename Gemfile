@@ -13,6 +13,7 @@ gem 'bcrypt',         '3.1.12'
 gem 'flatpickr_rails'
 
 
+
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
@@ -31,6 +32,8 @@ group :test do
   gem 'rails-controller-testing', '1.0.2'
   gem 'faker'
   gem 'capybara'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'launchy'
 end

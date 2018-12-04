@@ -22,12 +22,24 @@ describe User do
         user_test = FactoryBot.build(:user, username:"asdfghjklzxcvbnmqwert")
         expect(user_test).to_not be_valid
     end
-    it "has unique username" do
+    it "has unique username (case-sensitive)" do
         user_test = FactoryBot.build(:user, username:@user.username.upcase)
         expect(user_test).to_not be_valid
     end
     it "is invalid without a email" do
         user_test = FactoryBot.build(:user, email:nil)
+        expect(user_test).to_not be_valid
+    end
+    it "has unique email (case-sensitive)" do
+        user_test = FactoryBot.build(:user, email:@user.email.upcase)
+        expect(user_test).to_not be_valid
+    end
+    it "has a valid email (positive)" do
+        user_test = FactoryBot.build(:user, email:"valid@email.com")
+        expect(user_test).to be_valid
+    end
+    it "has a valid email (negative)" do
+        user_test = FactoryBot.build(:user, email:"not_valid-email,com")
         expect(user_test).to_not be_valid
     end
     it "is invalid without a password" do
@@ -43,11 +55,12 @@ describe User do
         expect(user_test).to_not be_valid
     end
     it "is invalid if not adult" do
-        user_test = user_test = FactoryBot.build(:user, data_nascita: Date.new(2006,7,9))
+        user_test = FactoryBot.build(:user, data_nascita: Date.new(2006,7,9))
         expect(user_test).to_not be_valid
     end
-    it "returns a user's username as a string"
-    it "returns a user's email as a string"
-    it "returns a user's comune as a string"
-    it "returns a user's data_nascita as a string"
+    it "is authenticated " do
+        user_test = FactoryBot.build(:user)
+        expect(user_test.authenticated?("")).to_not be_in([true])
+    end
+    
 end
