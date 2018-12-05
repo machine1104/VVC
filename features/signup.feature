@@ -5,7 +5,6 @@ Feature: Signup
   
   Scenario: User successfully register
     Given I am a guest
-    And I am on the homepage
-    When I register a valid account
-    Then I should be on profile page
-    #And I should see a welcome message
+    And I am on the registration page
+    When I click on the registration button
+    Then I should be registered

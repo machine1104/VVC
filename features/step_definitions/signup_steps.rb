@@ -2,16 +2,17 @@ Given (/^I am a guest$/) do
   @user = nil
 end
 
-And (/^I am on the homepage$/) do
-  visit root_path
+And (/^I am on the registration page$/) do
+  visit registrazione_path
 end
 
-When (/^I register a valid account$/) do
+When (/^I click on register button$/) do
+  @count = User.count
   register(FactoryBot.create(:user))
 end
 
-Given (/^I should be on profile page$/) do
-  expect
+Then (/^I should be registered$/) do
+  expect(User.count).to equal(@count+1)
 end
 
 
