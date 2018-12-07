@@ -4,7 +4,6 @@ Feature: Logout
   So that I close the session
 
   Scenario: Logout successfully
-    Given I am a registered user
-    And I am authenticated
-    When I click on Logout button
-    Then I am not authenticated
+    Given I am a registered user logged in
+    When I click on Logout link
+    Then I am not authenticated verifica

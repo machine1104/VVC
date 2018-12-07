@@ -3,7 +3,11 @@ Given (/^I am a guest$/) do
 end
 
 And (/^I am on the (.*) page$/) do |url|
-  visit url
+  if(url == "edit")
+    find(:xpath, "//a[@href='/users/"+@user.id.to_s+"/edit']").click
+  else 
+    visit url
+  end
 end
 
 And (/^I insert valid informations$/) do
@@ -38,7 +42,7 @@ And (/^I am not authenticated$/) do
 end
 
 And (/^I insert valid credentials for login$/) do
-  pollo = login(@user)
+  login(@user)
 end
 
 And (/^I insert invalid credentials for login$/) do
@@ -51,12 +55,44 @@ When (/^I click on (.*) button$/) do |value|
 end
 
 Then (/^I am authenticated$/) do
-  expect(page).to have_current_path("/users/" + @user.id.to_s)
+  expect(page).to have_selector(:xpath,"//a[@href='/logout']" )
 end
 
 Then (/^I shouldn't be logged in$/) do
   expect(page).to have_current_path("/login")
 end
+
+Given (/^I am a registered user logged in$/) do
+  @user = FactoryBot.create(:user)
+  visit registrazione_path
+  register(@user)
+  click_button('Crea account')
+  visit login_path
+  login(@user)
+  click_button("Accedi")
+end
+
+
+When (/^I click on (.*) link$/) do |value|
+  find(:xpath, "//a[@href='/logout']").click
+end
+
+
+Then (/^I am not authenticated verifica$/) do
+  expect(page).not_to have_selector(:xpath,"//a[@href='/logout']" )
+end
+
+When (/^I edit my profile/) do
+  @user_test = FactoryBot.create(:user)
+  edit(@user_test)
+end
+
+Then (/^Profile should be updated$/) do
+  edit_check(@user,@user_test)
+end
+
+
+
 
   
   
