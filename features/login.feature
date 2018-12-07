@@ -7,6 +7,14 @@ Feature: Login
     Given I am a registered user
     And I am not authenticated
     And I am on the login page
-    And I insert valid credentials
-    When I click on login button
+    And I insert valid credentials for login
+    When I click on Accedi button
     Then I am authenticated
+
+  Scenario: Login unsuccessfully
+    Given I am a registered user
+    And I am not authenticated
+    And I am on the login page
+    And I insert invalid credentials for login
+    When I click on Accedi button
+    Then I shouldn't be logged in
