@@ -11,8 +11,8 @@ gem 'jbuilder',       '2.7.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt',         '3.1.12'
 gem 'flatpickr_rails'
-
-
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
