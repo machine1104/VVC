@@ -1,4 +1,3 @@
-# spec/models/user.rb
 require 'spec_helper'
 
 describe User do
@@ -58,9 +57,9 @@ describe User do
         user_test = FactoryBot.build(:user, data_nascita: Date.new(2006,7,9))
         expect(user_test).to_not be_valid
     end
-    it "is authenticated " do
-        user_test = FactoryBot.build(:user)
-        expect(user_test.authenticated?("")).to_not be_in([true])
-    end
+    #it "is authenticated " do
+        #user_test = FactoryBot.build(:user)
+        #expect(user_test.authenticated?("")).to_not be_in([true])
+    #end
     
 end

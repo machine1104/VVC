@@ -3,7 +3,7 @@
     <%= link_to "Vieni, Vedi, Compra!", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <div class="btn-group">
         <button type="button" class="btn btn-header dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Account
@@ -17,8 +17,8 @@
       </div>
         <% else %>
         
-          <%= link_to 'Log In', login_path, :class => "btn btn-header1 " %>
-          <%= link_to 'Registrati', registrazione_path, :class => "btn btn-header1 " %>
+          <%= link_to 'Log In', new_user_session_path, :class => "btn btn-header1 " %>
+          <%= link_to 'Registrati', new_user_registration_path, :class => "btn btn-header1 " %>
         
           
         <% end %>
