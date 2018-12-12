@@ -10,8 +10,8 @@ module UserMethods
   end
 
   def login(user)
-    fill_in('session_email', with: user.email)
-    fill_in('session_password', with: user.password)
+    fill_in('user_email', with: user.email)
+    fill_in('user_password', with: user.password)
   end
   
   def edit(user)

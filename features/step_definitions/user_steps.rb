@@ -4,9 +4,9 @@ end
 
 And (/^I am on the (.*) page$/) do |url|
   if(url == "edit")
-    find(:xpath, "//a[@href='/users/"+@user.id.to_s+"/edit']").click
+    find(:xpath, "//a[@href='/users/edit']").click
   else 
-    visit url
+    visit 'users/'+url
   end
 end
 
@@ -32,13 +32,13 @@ end
 
 Given (/^I am a registered user$/) do
   @user = FactoryBot.create(:user)
-  visit registrazione_path
+  visit new_user_registration_path
   register(@user)
-  click_button('Crea account')
+  click_button('Registrati')
 end
 
 And (/^I am not authenticated$/) do
-  delete logout_path
+  delete destroy_user_session_path
 end
 
 And (/^I insert valid credentials for login$/) do
@@ -55,31 +55,31 @@ When (/^I click on (.*) button$/) do |value|
 end
 
 Then (/^I am authenticated$/) do
-  expect(page).to have_selector(:xpath,"//a[@href='/logout']" )
+  expect(page).to have_current_path("/")
 end
 
-Then (/^I shouldn't be logged in$/) do
-  expect(page).to have_current_path("/login")
+Then (/^I fail login$/) do
+  expect(page).to have_current_path("/users/login")
 end
 
 Given (/^I am a registered user logged in$/) do
   @user = FactoryBot.create(:user)
-  visit registrazione_path
+  visit new_user_registration_path
   register(@user)
-  click_button('Crea account')
-  visit login_path
+  click_button('Registrati')
+  visit new_user_session_path
   login(@user)
-  click_button("Accedi")
+  click_button("Log in")
 end
 
 
 When (/^I click on (.*) link$/) do |value|
-  find(:xpath, "//a[@href='/logout']").click
+  find(:xpath, "//a[@href='/users/"+value+"']").click
 end
 
 
 Then (/^I am not authenticated verifica$/) do
-  expect(page).not_to have_selector(:xpath,"//a[@href='/logout']" )
+  expect(page).to have_current_path("/")
 end
 
 When (/^I edit my profile/) do

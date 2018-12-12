@@ -5,5 +5,5 @@ Feature: Logout
 
   Scenario: Logout successfully
     Given I am a registered user logged in
-    When I click on Logout link
+    When I click on logout link
     Then I am not authenticated verifica

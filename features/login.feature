@@ -8,7 +8,7 @@ Feature: Login
     And I am not authenticated
     And I am on the login page
     And I insert valid credentials for login
-    When I click on Accedi button
+    When I click on Log in button
     Then I am authenticated
 
   Scenario: Login unsuccessfully
@@ -16,5 +16,5 @@ Feature: Login
     And I am not authenticated
     And I am on the login page
     And I insert invalid credentials for login
-    When I click on Accedi button
-    Then I shouldn't be logged in
+    When I click on Log in button
+    Then I fail login

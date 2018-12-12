@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,password_length: 8..128
 
   attr_accessor :remember_token
 
@@ -20,7 +20,7 @@ class User < ApplicationRecord
   
   validate :is_adult
 
-  validates :password, presence: true, length: { minimum: 8}, allow_nil: true
+  validates :password, presence: true, allow_nil: true
   
   # Forgets a user.
   #def forget

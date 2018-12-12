@@ -7,7 +7,27 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
+  
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, autofocus: true, autocomplete: "nome" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :cognome %><br />
+    <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :indirizzo %><br />
+    <%= f.text_field :indirizzo, autofocus: true, autocomplete: "indirizzo" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :comune %><br />
+    <%= f.text_field :comune, autofocus: true, autocomplete: "comune" %>
+  </div>
+  
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

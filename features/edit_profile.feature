@@ -7,7 +7,7 @@ Feature: Edit Profile
     Given I am a registered user logged in
     And I am on the edit page
     When I edit my profile
-    And I click on Salva button
+    And I click on Update button
     Then Profile should be updated
   
     
