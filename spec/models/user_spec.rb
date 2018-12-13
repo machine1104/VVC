@@ -17,8 +17,8 @@ describe User do
         user_test = FactoryBot.build(:user, username:"asdf")
         expect(user_test).to_not be_valid
     end
-    it "is invalid with a username longer than 20" do
-        user_test = FactoryBot.build(:user, username:"asdfghjklzxcvbnmqwert")
+    it "is invalid with a username longer than 128" do
+        user_test = FactoryBot.build(:user, username:"a"*129)
         expect(user_test).to_not be_valid
     end
     it "has unique username (case-sensitive)" do
@@ -45,21 +45,5 @@ describe User do
         user_test = FactoryBot.build(:user, password:nil)
         expect(user_test).to_not be_valid
     end
-    it "is invalid without a comune" do
-        user_test = FactoryBot.build(:user, comune:nil)
-        expect(user_test).to_not be_valid
-    end
-    it "is invalid without a data_nascita" do
-        user_test = FactoryBot.build(:user, data_nascita:nil)
-        expect(user_test).to_not be_valid
-    end
-    it "is invalid if not adult" do
-        user_test = FactoryBot.build(:user, data_nascita: Date.new(2006,7,9))
-        expect(user_test).to_not be_valid
-    end
-    #it "is authenticated " do
-        #user_test = FactoryBot.build(:user)
-        #expect(user_test.authenticated?("")).to_not be_in([true])
-    #end
     
 end

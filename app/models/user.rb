@@ -12,15 +12,7 @@ class User < ApplicationRecord
       username.downcase!
   end
 
-  #validates :username
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates   :email, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
-  validates :comune, length: { maximum: 30 }
-  #validates :data_nascita, presence: true
-  
-  validate :is_adult
-
-  #validates :password, allow_nil: true
+  validates :username , presence: true, length: 5..128, uniqueness: {case_sensitive:false}
   
   # Forgets a user.
   #def forget
@@ -28,35 +20,20 @@ class User < ApplicationRecord
   #end
 
   def self.from_omniauth(auth)
-    puts '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-    puts auth
-    puts '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
     # Either create a User record or update it based on the provider (Google) and the UID   
     where(provider: auth.provider, provider_id: auth.uid).first_or_create do |user|
-      user.email = auth.info.email 
-      user.username = auth.info.name
+      user.email = auth.info.email
+      user.nome = auth.info.first_name
+      user.cognome = auth.info.last_name
+      user.username = auth.info.email.split("@").first
       password = Devise.friendly_token[0,20]
       user.password = password
       user.token = auth.credentials.token
       user.expires = auth.credentials.expires
       user.expires_at = auth.credentials.expires_at
       user.refresh_token = auth.credentials.refresh_token
-      puts '/////////////////////////////////////*************************************++++++++++++++++++'
       user.save!
     end
   end
-
-  private
-
-  def is_adult
-      today = Date.today()
-      if data_nascita.present?
-          age = ((today - data_nascita).to_i)/365
-          if age < 18
-              errors.add(:data_nascita,"invalid. You must be adult, stronzo")
-          else
-              true
-          end
-      end
-  end
+  
 end
