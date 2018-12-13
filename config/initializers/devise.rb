@@ -3,6 +3,13 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+
+  client_id = '336103292346-4gmusjqv00ef62pacbv91hh85v977109.apps.googleusercontent.com'
+  client_secret = '3Q4wjmatr-aPFzWr74wzJKm3'
+
+  config.omniauth :google_oauth2, client_id, client_secret, {
+    scope: 'userinfo.email, userinfo.profile, plus.me'
+  }
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

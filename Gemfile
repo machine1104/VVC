@@ -14,6 +14,7 @@ gem 'flatpickr_rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'devise'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
