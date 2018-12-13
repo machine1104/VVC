@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2],  password_length: 8..128
+         :omniauthable, omniauth_providers: [:google_oauth2, :facebook],  password_length: 8..128
 
   attr_accessor :remember_token
 
@@ -31,7 +31,9 @@ class User < ApplicationRecord
       user.token = auth.credentials.token
       user.expires = auth.credentials.expires
       user.expires_at = auth.credentials.expires_at
-      user.refresh_token = auth.credentials.refresh_token
+      if auth.provider == 'google_oauth2'
+        user.refresh_token = auth.credentials.refresh_token
+      end
       user.save!
     end
   end

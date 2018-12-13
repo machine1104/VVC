@@ -15,6 +15,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'devise'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

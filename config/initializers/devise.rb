@@ -4,12 +4,19 @@
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
 
-  client_id = '336103292346-4gmusjqv00ef62pacbv91hh85v977109.apps.googleusercontent.com'
-  client_secret = '3Q4wjmatr-aPFzWr74wzJKm3'
+  client_id_google = '336103292346-4gmusjqv00ef62pacbv91hh85v977109.apps.googleusercontent.com'
+  client_secret_google = '3Q4wjmatr-aPFzWr74wzJKm3'
 
-  config.omniauth :google_oauth2, client_id, client_secret, {
+  app_id_facebook = '269111120443551'
+  app_secret_facebook = 'd6bab79758f71b954d1d75aa46976f2b'
+
+  config.omniauth :google_oauth2, client_id_google, client_secret_google, {
     scope: 'userinfo.email, userinfo.profile, plus.me'
   }
+
+  config.omniauth :facebook, app_id_facebook, app_secret_facebook,
+    scope: 'email'
+  
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
