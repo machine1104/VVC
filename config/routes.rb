@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   root  'static_pages#home'
   get   '/about',             to: 'static_pages#about'
   get   '/contatti',          to: 'static_pages#contatti'
+  get   '/users',             to: 'users#index'
   
   resources :users, only: :show
+  
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
 end
