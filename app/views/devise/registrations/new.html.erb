@@ -27,8 +27,20 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Registrati" %>
+    <%= f.submit "Registrati", class: "btn btn-header" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div align="center">
+  <%= link_to "/users/auth/google_oauth2", class: "btn btn-social btn-google" do %>
+    <span class="fa fa-google" ></span> Accedi con Google
+  <% end %>
+  
+  <%= link_to "/users/auth/facebook", class: "btn btn-social btn-facebook" do %>
+    <span class="fa fa-facebook" ></span> Accedi con Facebook
+  <% end %>
+</div>
+
+
+
+

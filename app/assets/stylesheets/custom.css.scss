@@ -2,7 +2,9 @@
 @import "bootstrap";
 
 $gray-medium-light: #eaeaea;
-$teal-lite: #1bbc9b;
+$lite: #AA3939;
+$dark: #801515;
+
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -70,64 +72,73 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 9px;
     font-weight: bold;
     &:hover {
-      color: teal;
       text-decoration: none;
     }
   }
 
   .navbar-inverse {
-    background: $teal-lite;
-    .navbar-nav {
-      li{
-        a {
-          color: white;
-          &:hover {
-            background: teal;
-            color: white
-          }
-        }
-      }
-    }
+    background: $dark;
+    height: 53px;
   }
   
   .btn-header{
     margin-top: 9px;
+    width: 105px;
     border-style: solid;
+    border-radius: 4px;
     border-width: 1px;
     border-color: white;
     color: white;
-    background: $teal-lite;
+    background: $dark;
     &:hover {
-          background: white;
-          color: teal
+          background: $lite;
+          color: $lite;
+          border-color: $lite;
           }
-  
-  }
-  
-  .btn-header1{
-    margin-top: 9px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
-    color: white;
-    background: $teal-lite;
-    &:hover {
-          background: white;
-          color: teal
-        }
   }
   
   .dropdown-menu {
-    background: $teal-lite;
+    width: 200px;
+    background: $lite;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
     li{
       a {
         color: white;
-        
+
         &:hover {
-          background: teal;
-          color: white
+          background: $dark;
+          color: white;
         }
       }
+    }
+    .divider {
+      background-color: $dark;
+    }
+  }
+  
+  .btn-dropdown {
+    margin-top: 9px;
+    width: 200px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    background: $dark;
+    color: white;
+    &:hover {
+      background: $lite;
+      color: white;
+      border-color: white;
+      border-style: solid;
+      border-width: 1px;
+      }
+    &:focus {
+      background: $lite;
+      color: white;
+      border-color: white;
+      border-style: solid;
+      border-width: 1px;
     }
   }
 

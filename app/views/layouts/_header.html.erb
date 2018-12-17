@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <div class="btn-group">
-        <button type="button" class="btn btn-header dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Account
         </button>
         <div class="dropdown-menu">
@@ -17,8 +17,8 @@
         </div>
       </div>
         <% else %>
-          <%= link_to 'Log In', new_user_session_path, :class => "btn btn-header1 " %>
-          <%= link_to 'Registrati', new_user_registration_path, :class => "btn btn-header1 " %>          
+          <%= link_to 'Log In', new_user_session_path, :class => "btn btn-header " %>
+          <%= link_to 'Registrati', new_user_registration_path, :class => "btn btn-header " %>          
         <% end %>        
       </ul>
     </nav>

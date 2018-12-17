@@ -12,7 +12,10 @@
  *
  *= require_tree .
  *= require_self
- *= require flatpickr/material_green
+ *= require bootstrap-social
+ *= require font-awesome
  */
+ 
+ 
  
 
