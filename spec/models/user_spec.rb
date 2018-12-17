@@ -9,6 +9,7 @@ describe User do
     it "has a valid factory" do
         expect(@user).to be_valid 
     end
+    
     it "is invalid without a username" do
         user_test = FactoryBot.build(:user, username:nil)
         expect(user_test).to_not be_valid

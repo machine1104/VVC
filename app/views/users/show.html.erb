@@ -3,9 +3,15 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
-        <%= @user.username %>
-        <%= @user.email %>
+        <% if user_signed_in_with_provider? %>
+          <%= image_tag(@user.image, alt: @user.username, class: "profile") %>
+          <%= @user.username %>
+          <%= @user.email %>
+        <% else %>
+          <%= gravatar_for @user %>
+          <%= @user.username %>
+          <%= @user.email %>
+        <% end %>
       </h1>
     </section>
   </aside>

@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181213163919) do
+ActiveRecord::Schema.define(version: 20181217165716) do
+
+  create_table "announcements", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "titolo"
+    t.string "categoria"
+    t.text "descrizione"
+    t.string "posizione"
+    t.string "email"
+    t.string "telefono"
+    t.float "prezzo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_announcements_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_announcements_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +50,7 @@ ActiveRecord::Schema.define(version: 20181213163919) do
     t.boolean "expires"
     t.string "refresh_token"
     t.string "remember_token"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

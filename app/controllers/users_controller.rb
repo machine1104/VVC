@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @announcements = @user.announcements.paginate(page: params[:page], per_page: 15)
   end
   
   def destroy

@@ -12,25 +12,24 @@ class User < ApplicationRecord
       username.downcase!
   end
 
-  validates :username , presence: true, length: 5..128, uniqueness: {case_sensitive:false}
+  has_many :announcements, dependent: :destroy
 
-  def self.from_omniauth(auth)
-    # Either create a User record or update it based on the provider (Google) and the UID
-    if !where(email: auth.info.email).exists?
-      where(provider: auth.provider, provider_id: auth.uid).first_or_create do |user|
-        user.email = auth.info.email
-        user.nome = auth.info.first_name
-        user.cognome = auth.info.last_name
-        user.username = auth.info.email.split("@").first
-        password = Devise.friendly_token[0,20]
-        user.password = password
-        user.token = auth.credentials.token
-        user.expires = auth.credentials.expires
-        user.expires_at = auth.credentials.expires_at
-        if auth.provider == 'google_oauth2'
-          user.refresh_token = auth.credentials.refresh_token
-        end
-        user.save!
+  validates :username , presence: true, length: 5..128, uniqueness: { case_sensitive:false }
+
+  def self.from_omniauth(auth)   
+    where(provider: auth.provider, provider_id: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.nome = auth.info.first_name
+      user.cognome = auth.info.last_name
+      user.username = auth.info.email.split("@").first
+      user.image = auth.info.image
+      password = Devise.friendly_token[0,20]
+      user.password = password
+      user.token = auth.credentials.token
+      user.expires = auth.credentials.expires
+      user.expires_at = auth.credentials.expires_at
+      if auth.provider == 'google_oauth2'
+        user.refresh_token = auth.credentials.refresh_token
       end
     end
   end
