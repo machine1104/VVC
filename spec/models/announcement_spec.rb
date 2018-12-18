@@ -4,8 +4,8 @@ RSpec.describe Announcement, type: :model do
 
   before(:all) do
     @user = FactoryBot.create(:user)
-    @ann = FactoryBot.build(:announcement, user_id:@user.id)
-    @most_rec = FactoryBot.create(:most_recent)
+    @ann = FactoryBot.create(:announcement, user_id: @user.id)
+    @most_rec = FactoryBot.create(:most_recent, user_id: @user.id)
   end
 
   it "has a valid factory" do
@@ -52,11 +52,9 @@ RSpec.describe Announcement, type: :model do
   end
 
   it "is destroyed when the owner is destroyed" do
-    @user.save
-    @ann.save
     count = Announcement.count
     @user.destroy
-    expect(Announcement.count).to eq(count-1)
+    expect(Announcement.count).to eq(count-2)
   end
 
 end

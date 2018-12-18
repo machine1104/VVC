@@ -15,7 +15,7 @@ Devise.setup do |config|
   }
 
   config.omniauth :facebook, app_id_facebook, app_secret_facebook,
-  info_fields: 'email, first_name, last_name', display: 'popup'
+  info_fields: 'email, first_name, last_name'
   
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing

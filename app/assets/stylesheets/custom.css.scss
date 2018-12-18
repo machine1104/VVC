@@ -69,20 +69,30 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     text-transform: uppercase;
     letter-spacing: -1px;
-    padding-top: 9px;
+    padding-top: 15px;
     font-weight: bold;
     &:hover {
+      text-decoration: none;
+    }
+    &:focus {
       text-decoration: none;
     }
   }
 
   .navbar-inverse {
     background: $dark;
-    height: 53px;
+    height: 63px;
+  }
+  
+  .profile-header-pic {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
   }
   
   .btn-header{
-    margin-top: 9px;
+    margin-top: 15px;
     width: 105px;
     border-style: solid;
     border-radius: 4px;
@@ -92,10 +102,11 @@ h1, h2, h3, h4, h5, h6 {
     background: $dark;
     &:hover {
           background: $lite;
-          color: $lite;
-          border-color: $lite;
+          color: white;
+          border-color: white;
           }
   }
+  
   
   .dropdown-menu {
     width: 200px;
@@ -280,6 +291,23 @@ input {
 
 .profile {
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 300px;
+  height: 300px;
 }
+
+/* body */
+.btn-form{
+    margin-top: 9px;
+    width: auto;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: white;
+    color: white;
+    background: $dark;
+    &:hover {
+          background: $lite;
+          color: white;
+          border-color: white;
+          }
+  }
