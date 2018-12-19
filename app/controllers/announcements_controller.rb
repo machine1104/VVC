@@ -10,7 +10,8 @@ class AnnouncementsController < ApplicationController
             flash[:success] = "Annuncio creato!"
             redirect_to announcements_path
         else
-            render 'static_pages/home'
+            flash[:danger] = "Errore"
+            redirect_to new_announcement_path
         end
     end
 
@@ -21,6 +22,7 @@ class AnnouncementsController < ApplicationController
     end
 
     def show
+        @announcement = Announcement.find(params[:id])
     end
 
     def index

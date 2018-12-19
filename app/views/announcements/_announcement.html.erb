@@ -1,5 +1,5 @@
 <li id="announcement-<%= announcement.id %>">
-  <span class="content"><%= announcement.titolo %></span><br>
+  <%= link_to announcement.titolo, user_announcement_path(current_user.id,announcement.id) %><br>
   <span class="content"><%= announcement.categoria %></span><br>
   <span class="content"><%= announcement.descrizione %></span><br>
   <span class="timestamp"> Posted <%= time_ago_in_words(announcement.created_at) %> ago.

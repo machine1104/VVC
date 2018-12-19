@@ -15,202 +15,184 @@ $dark: #801515;
 /* universal */
 
 body {
-    padding-top: 60px;
-  }
-  
-  section {
-    overflow: auto;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  .center {
-    text-align: center;
-    h1 {
-      margin-bottom: 10px;
-    }
-  }
+  padding-top: 60px;
+}
 
-  /* typography */
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
 
 h1, h2, h3, h4, h5, h6 {
-    line-height: 1;
-  }
-  
-  h1 {
-    font-size: 3em;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 1.2em;
-    letter-spacing: -1px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: normal;
-    color: $gray-light;
-  }
-  
-  p {
-    font-size: 1.1em;
-    line-height: 1.7em;
-  }
+  line-height: 1;
+}
 
-  /* header */
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
 
-  #logo {
-    float: left;
-    margin-right: 10px;
-    font-size: 1.7em;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    padding-top: 15px;
-    font-weight: bold;
-    &:hover {
-      text-decoration: none;
-    }
-    &:focus {
-      text-decoration: none;
-    }
-  }
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
 
-  .navbar-inverse {
-    background: $dark;
-    height: 63px;
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 15px;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
   }
-  
-  #new-button{
-    border-color: white;
-    &:visited{
-      background:$lite;
-      border-color: white;
-    }
-    &:active{
-      background:$lite;
-      border-color: white;
-    }
-    &:focus{
-      outline: 0;
-      background:$lite;
-      border-color: white;
-    }
+  &:focus {
+    text-decoration: none;
   }
-  
-  .profile-header-pic {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    border: 2px solid white;
-  }
-  
-  .btn-header{
-    margin-top: 15px;
-    width: 105px;
-    border-style: solid;
-    border-radius: 4px;
-    border-width: 1px;
-    border-color: white;
-    color: white;
-    background: $dark;
-    &:hover {
-          background: $lite;
-          color: white;
-          border-color: white;
-          }
-  }
-  
-  .dropdown-menu {
-    width: 200px;
-    background: $lite;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    li{
-      a {
+}
+
+.navbar-inverse {
+  background: $dark;
+  height: 63px;
+}
+
+.profile-header-pic {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border: 2px solid white;
+}
+
+.btn-header{
+  margin-top: 15px;
+  width: 105px;
+  border-style: solid;
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: white;
+  color: white;
+  background: $dark;
+  &:hover {
+        background: $lite;
         color: white;
-
-        &:hover {
-          background: $dark;
-          color: white;
+        border-color: white;
         }
-      }
-    }
-    .divider {
-      background-color: $dark;
-    }
-  }
-  
-  .btn-primary {
-    margin-top: 9px;
-    width: 200px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
-    background: $dark;
-    color: white;
-    &:visited {
-      background: $lite;
-      color: white;
-      border-color: white;
-      border-style: solid;
-      border-width: 1px;
-    }
-    &:hover {
-      background: $lite;
-      color: white;
-      border-color: white;
-      border-style: solid;
-      border-width: 1px;
-    }
-    &:focus {
-      outline: 0;
-      background: $lite;
-      color: white;
-      border-color: white;
-      border-style: solid;
-      border-width: 1px;
-    }
-    &:active {
-      background: $lite;
-      color: white;
-      border-color: white;
-      border-style: solid;
-      border-width: 1px;
-    }
-    
-  }
-  
-  .btn-dropdown {
-    margin-top: 9px;
-    width: 200px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
-    background: $dark;
-    color: white;
-    &:hover {
-      background: $lite;
-      color: white;
-      border-color: white;
-      border-style: solid;
-      border-width: 1px;
-      }
-    &:focus {
-      background: $lite;
-      color: white;
-      border-color: white;
-      border-style: solid;
-      border-width: 1px;
-    }
-  }
+}
 
-  /* footer */
+.dropdown-menu {
+  width: 200px;
+  background: $lite;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  li{
+    a {
+      color: white;
+
+      &:hover {
+        background: $dark;
+        color: white;
+      }
+    }
+  }
+  .divider {
+    background-color: $dark;
+  }
+}
+
+.btn-dropdown {
+  margin-top: 9px;
+  width: 200px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  background: $dark;
+  color: white;
+  &:hover {
+    background: $lite;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    }
+  &:focus {
+    background: $lite;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+  }
+}
+
+#new-button {
+  margin-top: 9px;
+  width: 200px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  background: $dark;
+  color: white;
+  &:visited {
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+  }
+  &:hover {
+    background: $lite;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+  }
+  &:focus {
+    outline: 0;
+    background: $lite;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+  }
+  &:active {
+    background: $lite;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+  }
+  
+}
+
+/* footer */
 
 footer {
   margin-top: 45px;

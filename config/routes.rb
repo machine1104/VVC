@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get   '/users',                   to: 'users#index'
   get   '/users/miei-annunci',      to: 'announcements#index'
   
-  resources :users, only: [:show]
-  resources :announcements
+  resources :users, only: [:show] do
+    resources :announcements
+  end
+  resources :announcements, only: [:index, :show]
   
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
