@@ -84,11 +84,29 @@ h1, h2, h3, h4, h5, h6 {
     height: 63px;
   }
   
+  #new-button{
+    border-color: white;
+    &:visited{
+      background:$lite;
+      border-color: white;
+    }
+    &:active{
+      background:$lite;
+      border-color: white;
+    }
+    &:focus{
+      outline: 0;
+      background:$lite;
+      border-color: white;
+    }
+  }
+  
   .profile-header-pic {
     border-radius: 50%;
     width: 30px;
     height: 30px;
     margin-right: 10px;
+    border: 2px solid white;
   }
   
   .btn-header{
@@ -106,7 +124,6 @@ h1, h2, h3, h4, h5, h6 {
           border-color: white;
           }
   }
-  
   
   .dropdown-menu {
     width: 200px;
@@ -127,6 +144,46 @@ h1, h2, h3, h4, h5, h6 {
     .divider {
       background-color: $dark;
     }
+  }
+  
+  .btn-primary {
+    margin-top: 9px;
+    width: 200px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    background: $dark;
+    color: white;
+    &:visited {
+      background: $lite;
+      color: white;
+      border-color: white;
+      border-style: solid;
+      border-width: 1px;
+    }
+    &:hover {
+      background: $lite;
+      color: white;
+      border-color: white;
+      border-style: solid;
+      border-width: 1px;
+    }
+    &:focus {
+      outline: 0;
+      background: $lite;
+      color: white;
+      border-color: white;
+      border-style: solid;
+      border-width: 1px;
+    }
+    &:active {
+      background: $lite;
+      color: white;
+      border-color: white;
+      border-style: solid;
+      border-width: 1px;
+    }
+    
   }
   
   .btn-dropdown {
