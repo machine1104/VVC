@@ -1,0 +1,44 @@
+<h2>Crea nuovo annuncio</h2>
+
+<%= form_for :announcement, url: announcements_path do |f| %>
+
+  <div class="field">
+    <%= f.label :titolo %><br />
+    <%= f.text_field :titolo, autofocus: true, autocomplete: "titolo" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :categoria %><br />
+    <%= f.select :categoria, ["Arredamento", "Abbigliamento", "Elettronica", "Motori"], autofocus: true, autocomplete: "categoria" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descrizione %><br />
+    <%= f.text_area :descrizione, autofocus: true, autocomplete: "descrizione" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :posizione %><br />
+    <%= f.text_field :posizione, autofocus: true, autocomplete: "posizione" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono, autofocus: true, autocomplete: "telofono" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prezzo %><br />
+    <%= f.number_field :prezzo, step: :any, autofocus: true, autocomplete: "prezzo" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Crea annuncio", class: "btn btn-form" %>
+  </div>
+<% end %>
+

@@ -1,8 +1,7 @@
 <li id="announcement-<%= announcement.id %>">
-  <%= link_to gravatar_for(announcement.user, size: 50), announcement.user %>
-  <span class="user"><%= link_to announcement.user.name, announcement.user %></span>
-  <span class="content"><%= announcement.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(announcement.created_at) %> ago.
+  <span class="content"><%= announcement.titolo %></span><br>
+  <span class="content"><%= announcement.categoria %></span><br>
+  <span class="content"><%= announcement.descrizione %></span><br>
+  <span class="timestamp"> Posted <%= time_ago_in_words(announcement.created_at) %> ago.
   </span>
 </li>

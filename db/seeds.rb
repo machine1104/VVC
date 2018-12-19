@@ -19,3 +19,29 @@ User.create!(username:  'pincopallo',
         password:              password,
         password_confirmation: password)
 end
+
+10.times do |n|
+    user_id = 2
+    titolo = Faker::Commerce.product_name
+    categoria = Faker::Commerce.department
+    descrizione = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis pulvinar libero at volutpat. 
+                   Suspendisse potenti. Nullam malesuada mollis dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                   Integer leo dolor, vehicula sed sem egestas, suscipit semper magna. Nullam lacus nunc, tincidunt sed ultricies eu, luctus sed elit. 
+                   Fusce eu consequat magna, a euismod ante. Ut a ipsum eget risus gravida eleifend. Pellentesque porta quis urna id elementum. Integer 
+                   hendrerit arcu vitae nibh auctor, et feugiat sapien sollicitudin. Sed commodo, urna vel tempor congue, tortor urna laoreet lectus, et 
+                   tempus justo mauris ut mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    posizione = 'x,y,z'
+    email = 'pincopallo@gmail.com'
+    telefono = ''
+    prezzo = Faker::Commerce.price
+    immagine = Faker::Avatar.image("immagine", "300x100")
+    Announcement.create!(user_id: user_id,
+        titolo: titolo,
+        categoria: categoria,
+        descrizione: descrizione,
+        posizione: posizione,
+        email: email,
+        telefono: telefono,
+        prezzo: prezzo,
+        immagine: immagine)
+end
