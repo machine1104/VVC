@@ -18,6 +18,10 @@
     <%= f.text_area :descrizione, autofocus: true, autocomplete: "descrizione" %>
   </div>
 
+  <span class="picture">
+    <%= f.file_field :immagine %>
+  </span>
+
   <div class="field">
     <%= f.label :posizione %><br />
     <%= f.text_field :posizione, autofocus: true, autocomplete: "posizione" %>

@@ -18,6 +18,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
+gem 'carrierwave'          
+gem 'mini_magick'                  
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -45,6 +48,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'fog'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
