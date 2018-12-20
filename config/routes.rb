@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   get   '/about',                   to: 'static_pages#about'
   get   '/contatti',                to: 'static_pages#contatti'
   get   '/users',                   to: 'users#index'
-  get   '/users/miei-annunci',      to: 'announcements#index'
-  
+    
   resources :users, only: [:show] do
-    resources :announcements
+    resources :announcements, except: [:index]
+    get   '/miei-annunci', to: 'announcements#index'
   end
+  
   resources :announcements, only: [:index, :show]
   
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user

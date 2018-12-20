@@ -1,6 +1,7 @@
 <h2>Crea nuovo annuncio</h2>
 
-<%= form_for :announcement, url: announcements_path do |f| %>
+<%= form_for @announcement, url: user_announcements_path(current_user.id) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <div class="field">
     <%= f.label :titolo %><br />

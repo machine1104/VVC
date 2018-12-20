@@ -1,7 +1,14 @@
 <li id="announcement-<%= announcement.id %>">
-  <%= link_to announcement.titolo, user_announcement_path(current_user.id,announcement.id) %><br>
-  <span class="content"><%= announcement.categoria %></span><br>
-  <span class="content"><%= announcement.descrizione %></span><br>
-  <span class="timestamp"> Posted <%= time_ago_in_words(announcement.created_at) %> ago.
-  </span>
+  <%= link_to announcement.titolo, user_announcement_path(current_user.id, announcement.id) %><br>
+  <span class="content">
+    <%= announcement.categoria %></span><br>
+  <span class="content">
+    <%= announcement.descrizione %></span><br>
+  <span class="timestamp"> Posted
+    <%= time_ago_in_words(announcement.created_at) %> ago.</span>
+  <% if current_user?(announcement.user) %>
+  <% announcement %>
+  <%= link_to "Elimina", user_announcement_path(current_user.id, announcement.id), method: :delete,
+                                       data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
+  <% end %>
 </li>
