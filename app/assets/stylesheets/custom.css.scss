@@ -18,6 +18,13 @@ body {
   padding-top: 60px;
 }
 
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: auto;
+  height: 100%;
+}
+
 section {
   overflow: auto;
 }
@@ -67,7 +74,6 @@ p {
 }
 
 /* header */
-
 #logo {
   float: left;
   margin-right: 10px;
@@ -89,7 +95,11 @@ p {
 
 .navbar-inverse {
   background: $dark;
-  height: 63px;
+  height: 85px;
+}
+
+.navbar-right {
+  margin-right: 0%;
 }
 
 .profile-header-pic {
@@ -231,7 +241,7 @@ footer {
   ul {
     float: right;
     list-style: none;
-
+    margin-right: 10%;
     li {
       float: left;
       margin-left: 15px;
@@ -423,4 +433,45 @@ span.picture {
 #product-image {
   width: 750px;
   height: 500px;
+}
+
+/* carosello annuncio */
+.carousel-inner {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button {
+  padding:1em;
+  text-align: center;
+  display:inline-block;
+  text-decoration: none !important;
+  margin:0 auto;
+
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.containerr{
+width: 100%;
+height: inherit;
+text-align: center;
 }

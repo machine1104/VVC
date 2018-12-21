@@ -12,6 +12,6 @@ class CreateAnnouncements < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    add_index :announcements, [:user_id, :created_at]
+    add_index :announcements, %i[user_id created_at]
   end
 end

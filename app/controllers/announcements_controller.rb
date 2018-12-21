@@ -22,7 +22,19 @@ class AnnouncementsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
-  def edit; end
+  def edit
+    @announcement = Announcement.find(params[:id])
+  end
+
+  def update
+    @announcement = Announcement.find(params[:id])
+    if @announcement.update_attributes(announcement_params)
+      flash[:success] = 'Annuncio modificato con successo'
+      redirect_to @announcement
+    else
+      render 'edit'
+    end
+  end
 
   def show
     @announcement = Announcement.find(params[:id])
@@ -36,7 +48,8 @@ class AnnouncementsController < ApplicationController
 
   def announcement_params
     params.require(:announcement).permit(:titolo, :categoria, :descrizione, :posizione, :email, :telefono,
-                                         :prezzo, :immagine)
+                                         :prezzo, :immagine_1, :immagine_2, :immagine_3, :immagine_4,
+                                         :immagine_5)
   end
 
   def correct_user

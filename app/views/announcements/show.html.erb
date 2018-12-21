@@ -1,76 +1,65 @@
 <!-- Page Content -->
-<div class="container">
+<div class="container" id="show">
 
-    <!-- Portfolio Item Heading -->
-    <h1 class="my-4">
-        <%= @announcement.titolo %>
-    </h1>
-
-    <!-- Portfolio Item Row -->
-    <div class="row">
-
-        <div class="col-md-8">
-            <%= image_tag @announcement.immagine.url, id: 'product-image' if @announcement.immagine? %>
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">
+    <%= @announcement.titolo %>
+  </h1>
+    <div class="col-md-6">
+      <div id="myGallery" class="carousel slide" data-ride="carousel" data-interval="false">
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="item active">
+            <%= image_tag @announcement.immagine_1.url, class: "img-responsive" if @announcement.immagine_1? %>
+          </div>
+          <div class="item">
+            <%= image_tag @announcement.immagine_2.url, class: "img-responsive" if @announcement.immagine_2? %>
+          </div>
+          <div class="item">
+            <%= image_tag @announcement.immagine_3.url, class: "img-responsive" if @announcement.immagine_3? %>
+          </div>
         </div>
+        <!--end carousel-inner-->
 
-        <div class="col-md-4">
-            <h3 class="my-3">Descrizione prodotto</h3>
-            <p>
-                <%= @announcement.descrizione %>
-            </p>
-            <h3 class="my-3">Dettagli prodotto</h3>
-            <ul>
-                <li>Categoria:
-                    <%= @announcement.categoria %>
-                </li>
-                <li>Posizione:
-                    <%= @announcement.posizione %>
-                </li>
-                <li>Email:
-                    <%= @announcement.email %>
-                </li>
-                <li>Telefono:
-                    <%= @announcement.telefono %>
-                </li>
-            </ul>
-            <h3>
-                <%= @announcement.prezzo %>0 € </h3>
-        </div>
-
+        <!--Begin Previous and Next buttons-->
+        <a class="left carousel-control" href="#myGallery" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myGallery"
+          role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+      <!--end carousel-->
     </div>
-    <!-- /.row -->
 
-    <!-- Related Projects Row -->
-    <h3 class="my-4">Related Projects</h3>
-
-    <div class="row">
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
-
+    <div class="col-md-4">
+      <h3 class="my-3">Descrizione prodotto</h3>
+      <p>
+        <%= @announcement.descrizione %>
+      </p>
+      <h3 class="my-3">Dettagli prodotto</h3>
+      <ul>
+        <li>Categoria:
+          <%= @announcement.categoria %>
+        </li>
+        <li>Posizione:
+          <%= @announcement.posizione %>
+        </li>
+        <li>Email:
+          <%= @announcement.email %>
+        </li>
+        <li>Telefono:
+          <%= @announcement.telefono %>
+        </li>
+      </ul>
+      <h3>
+        <%= @announcement.prezzo %>0 € </h3>
     </div>
-    <!-- /.row -->
 
+  </div>
+  <!-- /.row -->
 </div>
 <!-- /.container -->

@@ -1,6 +1,8 @@
-<h2>Crea nuovo annuncio</h2>
+<h2>Edit
+  <%= @annoucement.to_s.humanize %>
+</h2>
 
-<%= form_for @announcement, url: user_announcements_path(current_user.id) do |f| %>
+<%= form_for @announcement, url: user_announcement_path(current_user.id), html: { method: :put } do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
 <div class="field">
@@ -19,15 +21,15 @@
 </div>
 
 <span class="picture">
-  <%= f.label :immagine_1 %><br />
-  <%= f.file_field :immagine_1 %>
-  <%= f.label :immagine_2 %><br />
+  <%= f.label 'Immagine 1' %><br />
+  <%= f.file_field :immagine_1%>
+  <%= f.label 'Immagine 2' %><br />
   <%= f.file_field :immagine_2 %>
-  <%= f.label :immagine_3 %><br />
+  <%= f.label 'Immagine 3' %><br />
   <%= f.file_field :immagine_3 %>
-  <%= f.label :immagine_4 %><br />
+  <%= f.label 'Immagine 4' %><br />
   <%= f.file_field :immagine_4 %>
-  <%= f.label :immagine_5 %><br />
+  <%= f.label 'Immagine 5' %><br />
   <%= f.file_field :immagine_5 %>
 </span>
 
@@ -52,6 +54,8 @@
 </div>
 
 <div class="actions">
-  <%= f.submit "Crea annuncio", class: "btn btn-form" %>
+  <%= f.submit "Aggiorna", class: "btn btn-form" %>
 </div>
 <% end %>
+
+<%= link_to "Indietro", :back, class: "btn btn-form" %>
