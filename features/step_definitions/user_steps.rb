@@ -4,16 +4,33 @@ end
 
 And (/^I am on the (.*) page$/) do |url|
   if(url == "edit")
-    find(:xpath, "//a[@href='/users/edit']").click
+    visit edit_user_registration_path
+  elsif(url == "new announcement")
+    visit new_user_announcement_path(@user.id)
+  elsif(url == "modifica annuncio")
+    visit edit_user_announcement_path(@user.id,Announcement.where(user_id: @user.id).first.id)  
   else 
     visit 'users/'+url
   end
 end
 
+And (/^I have an announcement$/) do
+  visit new_user_announcement_path(@user.id)
+  @ad = FactoryBot.build(:announcement)
+  create_announcement(@ad)
+  click_button('Crea annuncio')
+end
+
 And (/^I insert valid informations$/) do
   @count = User.count
-  @user = FactoryBot.create(:user)
+  @user = FactoryBot.build(:user)
   register(@user)
+end
+
+And (/^I insert valid announcement informations$/) do
+  @count_annoucement = Announcement.count
+  @ad = FactoryBot.build(:announcement)
+  create_announcement(@ad)
 end
 
 And (/^I insert invalid informations$/) do
@@ -24,6 +41,10 @@ end
 
 Then (/^I should be registered$/) do
   expect(User.count).to equal(@count+1)
+end
+
+Then (/^Announcement should be created$/) do
+  expect(Announcement.count).to equal(@count_annoucement+1)
 end
 
 Then (/^I shouldn't be registered$/) do
@@ -87,8 +108,22 @@ When (/^I edit my profile/) do
   edit(@user_test)
 end
 
+And (/^I edit my announcement/) do
+  @ad_test = FactoryBot.build(:edited_ad)
+  edit_ad(@ad_test)
+end
+
 Then (/^Profile should be updated$/) do
   edit_check(@user,@user_test)
+end
+
+Then (/^Announcement should be updated$/) do
+  edit_ad_check(@user,@ad_test)
+end
+
+Then (/^Profile should be deleted$/) do
+  aux = User.find_by(id: @user.id)
+  expect(aux).to be_nil
 end
 
 

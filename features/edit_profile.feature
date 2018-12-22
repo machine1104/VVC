@@ -9,5 +9,5 @@ Feature: Edit Profile
     When I edit my profile
     And I click on Update button
     Then Profile should be updated
-  
+    
     

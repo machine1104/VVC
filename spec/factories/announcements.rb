@@ -25,3 +25,16 @@ FactoryBot.define do
     f.prezzo { 65 }
   end
 end
+
+  FactoryBot.define do
+  factory :edited_ad, class: Announcement do |f|
+    f.user_id { 2 }
+    f.titolo { "nuovo titolo" }
+    f.categoria { "Arredamento" }
+    f.descrizione { "nuova descrizione" }
+    f.posizione { "nuova posizione" }
+    f.email { "nuovamail@gmail.com" }
+    f.telefono { "800900313" }
+    f.prezzo { 65 }
+  end
+end
