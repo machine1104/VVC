@@ -1,10 +1,10 @@
 <header>
-  <div class="container">
-    <nav class="navbar fixed-top navbar-dark">
-      <%= link_to "Vieni, Vedi, Compra!", root_path, id:'logo'%>
-      <ul class="nav navbar-nav navbar-right">
+  <nav class="navbar fixed-top navbar-dark">
+    <div class="container">
+      <%= link_to "Vieni, Vedi, Compra!", root_path,  class: 'navbar-brand', id:'logo'%>
+      <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-        <div class="btn-group">
+        <div class="btn-group" role="group">
           <%= link_to new_user_announcement_path(current_user.id), class:"btn", id:"new-button", method:"get" do %>
           <%= image_tag('add-icon.png') %>
           Crea annuncio
@@ -36,12 +36,12 @@
           </div>
         </div>
         <% else %>
-        <div class="btn-group">
-          <%= link_to 'Login', new_user_session_path, :class => "btn btn-header " %>
-          <%= link_to 'Registrati', new_user_registration_path, :class => "btn btn-header" %>
+        <div class="btn-group" role="group">
+          <%= link_to 'Login', new_user_session_path, class:"btn btn-outline-light" %>
+          <%= link_to 'Registrati', new_user_registration_path, class:"btn btn-outline-light" %>
         </div>
         <% end %>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
