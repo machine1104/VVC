@@ -4,7 +4,7 @@
       <%= link_to "Vieni, Vedi, Compra!", root_path,  class: 'navbar-brand', id:'logo'%>
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-        <div class="btn-group" role="group">
+        <!-- <div class="btn-group" role="group">
           <%= link_to new_user_announcement_path(current_user.id), class:"btn", id:"new-button", method:"get" do %>
           <%= image_tag('add-icon.png') %>
           Crea annuncio
@@ -33,6 +33,22 @@
             <li>
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             </li>
+          </div>
+        </div> -->
+        <div class="btn-group" role="group">
+          <%= link_to new_user_announcement_path(current_user.id), class:"btn btn-outline-light", method:"get" do %>
+          <%= image_tag('add-icon.png') %>
+          Crea annuncio
+          <% end %>
+          <div class="btn-group" role="group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
           </div>
         </div>
         <% else %>
