@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome";
+@import "bootstrap-social";
 
 $gray-medium-light: #eaeaea;
 $lite: #5A8EAD;
@@ -374,11 +376,12 @@ span.picture {
 }
 
 .btn-google {
-  padding-left: 40px;
+  padding-left: 64px;
+  margin-right: 50px;
 }
 
 .btn-facebook {
-  padding-left: 35px;
+  padding-left: 54px;
 }
 
 .alert {

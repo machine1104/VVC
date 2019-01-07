@@ -7,17 +7,17 @@
 
 <div class="field">
   <%= f.label :titolo %><br />
-  <%= f.text_field :titolo, autofocus: true, autocomplete: "titolo" %>
+  <%= f.text_field :titolo, autofocus: true, autocomplete: "titolo", class: "form-control form-control-sm"%>
 </div>
 
 <div class="field">
   <%= f.label :categoria %><br />
-  <%= f.select :categoria, ["Arredamento", "Abbigliamento", "Elettronica", "Motori"], autofocus: true, autocomplete: "categoria" %>
+  <%= f.select :categoria, ["Arredamento", "Abbigliamento", "Elettronica", "Motori"], {}, { class: "custom-select custom-select-sm" } %>
 </div>
 
 <div class="field">
   <%= f.label :descrizione %><br />
-  <%= f.text_area :descrizione, autofocus: true, autocomplete: "descrizione" %>
+  <%= f.text_area :descrizione, autofocus: true, autocomplete: "descrizione", class: "form-control form-control-sm" %>
 </div>
 
 <span class="picture">
@@ -47,22 +47,22 @@
 
 <div class="field">
   <%= f.label :posizione %><br />
-  <%= f.text_field :posizione, autofocus: true, autocomplete: "posizione" %>
+  <%= f.text_field :posizione, autofocus: true, autocomplete: "posizione", class: "form-control form-control-sm" %>
 </div>
 
 <div class="field">
   <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-sm" %>
 </div>
 
 <div class="field">
   <%= f.label :telefono %><br />
-  <%= f.text_field :telefono, autofocus: true, autocomplete: "telefono" %>
+  <%= f.text_field :telefono, autofocus: true, autocomplete: "telefono", class: "form-control form-control-sm" %>
 </div>
 
 <div class="field">
   <%= f.label :prezzo %><br />
-  <%= f.number_field :prezzo, step: :any, autofocus: true, autocomplete: "prezzo" %>
+  <%= f.number_field :prezzo, step: :any, autofocus: true, autocomplete: "prezzo", class: "form-control form-control-sm" %>
 </div>
 
 <div class="actions">

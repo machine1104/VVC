@@ -1,31 +1,31 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= render 'shared/error_messages', object: f.object %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-sm" %>
   </div>
   
   <div class="field">
     <%= f.label :nome %><br />
-    <%= f.text_field :nome, autofocus: true, autocomplete: "nome" %>
+    <%= f.text_field :nome, autofocus: true, autocomplete: "nome", class: "form-control form-control-sm" %>
   </div>
   
   <div class="field">
     <%= f.label :cognome %><br />
-    <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome" %>
+    <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome", class: "form-control form-control-sm" %>
   </div>
   
   <div class="field">
     <%= f.label :indirizzo %><br />
-    <%= f.text_field :indirizzo, autofocus: true, autocomplete: "indirizzo" %>
+    <%= f.text_field :indirizzo, autofocus: true, autocomplete: "indirizzo", class: "form-control form-control-sm" %>
   </div>
   
   <div class="field">
     <%= f.label :comune %><br />
-    <%= f.text_field :comune, autofocus: true, autocomplete: "comune" %>
+    <%= f.text_field :comune, autofocus: true, autocomplete: "comune", class: "form-control form-control-sm" %>
   </div>
   
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -35,21 +35,20 @@
   <% if !user_signed_in_with_provider? %>
     <div class="field">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-sm" %>
       <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-sm" %>
     </div>
 
     <div class="field">
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control form-control-sm" %>
     </div>
   <% end %>
 
