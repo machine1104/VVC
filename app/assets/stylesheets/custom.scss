@@ -149,76 +149,6 @@ p {
   }
 }
 
-/*
-.btn-dropdown {
-  margin-top: 9px;
-  width: 200px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: white;
-  background: $dark;
-  color: white;
-
-  &:hover {
-    background: $lite;
-    color: white;
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-  &:focus {
-    background: $lite;
-    color: white;
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-  }
-}*/
-
-#new-button {
-  margin-top: 9px;
-  width: 200px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: white;
-  background: $dark;
-  color: white;
-
-  &:visited {
-    color: white;
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-  &:hover {
-    background: $lite;
-    color: white;
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-  &:focus {
-    outline: 0;
-    background: $lite;
-    color: white;
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-  &:active {
-    background: $lite;
-    color: white;
-    border-color: white;
-    border-style: solid;
-    border-width: 1px;
-  }
-
-}
-
 /* footer */
 
 footer {
@@ -317,11 +247,10 @@ input {
   }
 }
 
-.field_with_errors {
-  @extend :invalid;
-
-  .form-control {
-    color: $form-feedback-invalid-color;
+.field_with_errors input {
+  border: 1px solid red;
+  label {
+    color: red;
   }
 }
 
@@ -432,6 +361,7 @@ span.picture {
 }
 
 /* carosello annuncio */
+
 .carousel-inner {
   img {
     width: 100%;
@@ -451,25 +381,10 @@ span.picture {
   padding-left: 35px;
 }
 
+.alert {
+  margin-bottom: 3rem;
+}
 
-
-
-
-
-
-
-
-
-.button {
-  padding: 1em;
-  text-align: center;
-  display: inline-block;
-  text-decoration: none !important;
-  margin: 0 auto;
-
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+.my-4 {
+  margin-bottom: 4.5rem !important;
 }
