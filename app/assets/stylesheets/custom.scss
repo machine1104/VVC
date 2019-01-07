@@ -1,8 +1,8 @@
 @import "bootstrap";
 
 $gray-medium-light: #eaeaea;
-$lite: #AA3939;
-$dark: #801515;
+$lite: #5A8EAD;
+$dark: #114C6F;
 $gray-light: lighten(#000, 46.7%) !default;
 
 
@@ -90,12 +90,14 @@ p {
 .navbar-dark {
   background: $dark;
   height: 80px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .profile-header-pic {
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   margin-right: 10px;
 }
 
@@ -113,30 +115,41 @@ p {
   }
 }
 
-/*
+#dropdownMenuButton {
+  background-color: $dark;
+  color: white;
+
+  &:hover {
+    background-color: $lite;
+    color: white;
+  }
+
+  &:focus {
+    background-color: $lite;
+    color: white;
+  }
+}
+
 .dropdown-menu {
-  width: 200px;
-  background: $lite;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
+  background: $dark;
+  border-color: white;
+}
 
-  li {
-    a {
-      color: white;
+.dropdown-item {
+  color: white;
 
-      &:hover {
-        background: $dark;
-        color: white;
-      }
-    }
+  &:hover {
+    background-color: $lite;
+    color: white;
   }
 
-  .divider {
-    background-color: $dark;
+  &:focus {
+    background-color: transparent;
+    color: white;
   }
-}*/
+}
 
+/*
 .btn-dropdown {
   margin-top: 9px;
   width: 200px;
@@ -161,7 +174,7 @@ p {
     border-style: solid;
     border-width: 1px;
   }
-}
+}*/
 
 #new-button {
   margin-top: 9px;
@@ -271,8 +284,8 @@ aside {
 }
 
 .gravatar {
-  float: left;
   margin-right: 10px;
+  border-radius: 50%;
 }
 
 .gravatar_edit {
@@ -358,7 +371,7 @@ input {
 /* body */
 
 #container-body {
-  margin-top: 125px;
+  margin-top: 45px;
 }
 
 .btn-form {
@@ -426,9 +439,17 @@ span.picture {
   }
 }
 
+.btn-social {
+  width: 240px;
+}
 
+.btn-google {
+  padding-left: 40px;
+}
 
-
+.btn-facebook {
+  padding-left: 35px;
+}
 
 
 

@@ -32,11 +32,12 @@
 <% end %>
 
 <div align="center">
-  <%= link_to "/users/auth/google_oauth2", class: "btn btn-social btn-google" do %>
-    <span class="fa fa-google" ></span> Accedi con Google
+  <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-social btn-google" do %>
+    <span class="fa fa-google" ></span>
+  Accedi con Google
   <% end %>
   
-  <%= link_to "/users/auth/facebook", class: "btn btn-social btn-facebook" do %>
+  <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-social btn-facebook" do %>
     <span class="fa fa-facebook" ></span> Accedi con Facebook
   <% end %>
 </div>
