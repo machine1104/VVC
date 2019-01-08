@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-6">
       <h3>
-        <%= link_to announcement.titolo, user_announcement_path(current_user.id, announcement.id) %>
+          <%= link_to announcement.titolo, announcement_path(announcement.id) %>
       </h3>
       <span class="content">
         <%= announcement.categoria %><br>
