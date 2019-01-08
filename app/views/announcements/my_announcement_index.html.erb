@@ -1,0 +1,14 @@
+<% provide(:title, 'I miei annunci') %>
+<div>
+    <h1> I miei annunci </h1>
+    <% if current_user.announcements.any? %>
+    <h3>Annunci:
+        <%= current_user.announcements.count %>
+    </h3>
+    <%= will_paginate @announcements %>
+    <ol class="announcements">
+        <%= render @announcements %>
+    </ol>
+    <%= will_paginate @announcements %>
+    <% end %>
+</div>

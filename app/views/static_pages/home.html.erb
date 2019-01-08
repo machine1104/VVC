@@ -1,9 +1,13 @@
-<div class="center jumbotron">
-  <h1>Vieni, Vedi, Compra!</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
+<div class="center">
+  <div class="row align-items-center">
+    <div class="col" id="text-search">
+      Cosa stai cercando?
+    </div>
+    <div class="col">
+      <%= form_tag announcements_path, method: :get, class: "form-group has-search", id: "search" do %>
+        <span class="fa fa-search form-control-feedback"></span>
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Inserisci una parola chiave...", autocomplete: "off" %>
+      <% end %>
+    </div>
+  </div>
 </div>

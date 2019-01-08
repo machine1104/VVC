@@ -92,8 +92,8 @@ p {
 .navbar-dark {
   background: $dark;
   height: 80px;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .profile-header-pic {
@@ -156,7 +156,7 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
+  border-top: 1px solid lightgrey;
 
   a {
     color: gray;
@@ -173,7 +173,7 @@ footer {
   ul {
     float: right;
     list-style: none;
-    margin-right: 10%;
+    margin-right: 15%;
 
     li {
       float: left;
@@ -301,8 +301,14 @@ input {
 
 /* body */
 
+body {
+  background-color: #e9ecef;
+}
+
 #container-body {
   margin-top: 45px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .btn-form {
@@ -390,4 +396,28 @@ span.picture {
 
 .my-4 {
   margin-bottom: 4.5rem !important;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+#search {
+  margin-top: 16px;
+}
+
+#text-search {
+  font-size: xx-large;
 }

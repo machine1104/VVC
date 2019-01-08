@@ -17,7 +17,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'carrierwave'          
-gem "mini_magick"                  
+gem 'mini_magick'
 
 
 group :development, :test do
