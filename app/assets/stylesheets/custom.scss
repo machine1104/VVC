@@ -307,8 +307,8 @@ body {
 
 #container-body {
   margin-top: 45px;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .btn-form {
@@ -418,6 +418,14 @@ span.picture {
   margin-top: 16px;
 }
 
-#text-search {
+.title {
   font-size: xx-large;
+  text-align: left;
+}
+
+.img-thumbnail {
+  border-color: $dark;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
 }

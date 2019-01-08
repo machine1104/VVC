@@ -73,6 +73,7 @@
       <h3>
         <%= @announcement.prezzo %>0 € </h3>
     </div>
+    <%= social_share_button_tag(@announcement.titolo, :url => request.original_url, desc: @announcement.descrizione) %>
 
   </div>
   <!-- /.row -->

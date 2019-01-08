@@ -18,6 +18,7 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'carrierwave'          
 gem 'mini_magick'
+gem 'social-share-button'
 
 
 group :development, :test do

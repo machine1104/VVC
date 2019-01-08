@@ -1,13 +1,31 @@
 <div class="center">
   <div class="row align-items-center">
-    <div class="col" id="text-search">
+    <div class="col title">
       Cosa stai cercando?
     </div>
-    <div class="col">
+    <div class="col-7">
       <%= form_tag announcements_path, method: :get, class: "form-group has-search", id: "search" do %>
         <span class="fa fa-search form-control-feedback"></span>
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Inserisci una parola chiave...", autocomplete: "off" %>
       <% end %>
     </div>
   </div>
+  <div class="row" >
+    <div class="col title">
+      Cerca per categoria         
+    </div>
+  </div>
+  <div class= "row">
+    <div class="col">
+      <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
+    </div>
+    <div class="col">
+      <%= link_to image_tag('elettronica.png', class: "img-thumbnail"), announcements_path %>
+    </div>
+    <div class="col">
+      <%= link_to image_tag('abbigliamento.png', class: "img-thumbnail"), announcements_path %>
+    </div>
+    <div class="col">
+      <%= link_to image_tag('arredamento.png', class: "img-thumbnail"), announcements_path %>
+    </div>
 </div>
