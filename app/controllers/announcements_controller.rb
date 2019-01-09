@@ -43,16 +43,18 @@ class AnnouncementsController < ApplicationController
   def index
     categoria = params[:categoria]
     search = params[:search]
-    if search && categoria.nil?
-      @announcements = Announcement.none
-      search.split.each do |s|
-        res = Announcement.where('titolo LIKE ? OR descrizione LIKE ?', "%#{s}%", "%#{s}%")
-        @announcements = @announcements.or(res)
+    if categoria.nil?
+      if !search.empty?
+        @announcements = Announcement.none
+        search.split.each do |s|
+          res = Announcement.where('titolo LIKE ? OR descrizione LIKE ?', "%#{s}%", "%#{s}%")
+          @announcements = @announcements.or(res)
+        end
+      else
+        @announcements = Announcement.all
       end
-    elsif categoria
-      @announcements = Announcement.where('categoria LIKE ?', "%#{categoria}%")
     else
-      @announcements = Announcement.all
+      @announcements = Announcement.where('categoria LIKE ?', "%#{categoria}%")
     end
     @announcements = @announcements.paginate(page: params[:page], per_page: 15)
   end
@@ -66,7 +68,7 @@ class AnnouncementsController < ApplicationController
   def announcement_params
     params.require(:announcement).permit(:titolo, :categoria, :descrizione, :posizione, :email, :telefono,
                                          :prezzo, :immagine_1, :immagine_2, :immagine_3, :immagine_4,
-                                         :immagine_5, :search)
+                                         :immagine_5, :search, :categoria)
   end
 
   def correct_user
