@@ -9,7 +9,7 @@
             <% end %>
             <div class="btn-group" role="group">
                 <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                    data-display="static" aria-haspopup="true" aria-expanded="false">
                     <% if user_signed_in_with_provider? %>
                     <%= image_tag(current_user.image, alt: current_user.username, class: "profile-header-pic") %>
                     <%= current_user.username %>
@@ -18,7 +18,7 @@
                     <%= current_user.username %>
                     <% end %>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <%= link_to "Profilo", current_user, class:"dropdown-item"%>
                     <%= link_to "Modifica profilo", edit_user_registration_path, class:"dropdown-item" %>
                     <%= link_to "I miei annunci", user_miei_annunci_path(current_user.id), class:"dropdown-item" %>

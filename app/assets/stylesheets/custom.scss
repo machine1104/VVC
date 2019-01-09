@@ -20,6 +20,13 @@ $gray-light: lighten(#000, 46.7%) !default;
   }
 }
 
+@media (max-width: 1499px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+
 /* universal */
 
 section {
@@ -251,6 +258,7 @@ input {
 
 .field_with_errors input {
   border: 1px solid red;
+
   label {
     color: red;
   }
@@ -300,10 +308,6 @@ input {
 }
 
 /* body */
-
-body {
-  background-color: #e9ecef;
-}
 
 #container-body {
   margin-top: 45px;
@@ -425,7 +429,22 @@ span.picture {
 
 .img-thumbnail {
   border-color: $dark;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-color: transparent;
+  padding: 0.7rem;
+}
+
+.row {
+  margin-bottom: 50px;
+}
+
+form {
+  a {
+    color: black;
+
+    &:hover {
+      color: $lite;
+    }
+  }
 }

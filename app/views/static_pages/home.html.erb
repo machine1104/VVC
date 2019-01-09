@@ -17,15 +17,54 @@
   </div>
   <div class= "row">
     <div class="col">
+      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+        <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %> </br></br>
+        <%= link_to "Motori", controller: "announcements", categoria: "Motori" %>
+      <% end %>
+    </div>
+    <div class="col">
+      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+        <%= link_to image_tag('elettronica.png', class: "img-thumbnail"), announcements_path %> </br></br>
+        <%= link_to "Elettronica", controller: "announcements", categoria: "Elettronica" %>
+      <% end %>
+    </div>
+    <div class="col">
+      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+        <%= link_to image_tag('abbigliamento.png', class: "img-thumbnail"), announcements_path %> </br></br>
+        <%= link_to "Abbigliamento", controller: "announcements", categoria: "Abbigliamento" %>
+      <% end %>
+    </div>
+    <div class="col">
+      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+        <%= link_to image_tag('arredamento.png', class: "img-thumbnail"), announcements_path %> </br></br>
+        <%= link_to "Arredamento", controller: "announcements", categoria: "Arredamento" %>
+      <% end %>
+    </div>
+    <div class="col">
       <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
     </div>
     <div class="col">
-      <%= link_to image_tag('elettronica.png', class: "img-thumbnail"), announcements_path %>
+      <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
     </div>
     <div class="col">
-      <%= link_to image_tag('abbigliamento.png', class: "img-thumbnail"), announcements_path %>
+      <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
     </div>
     <div class="col">
-      <%= link_to image_tag('arredamento.png', class: "img-thumbnail"), announcements_path %>
+      <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
     </div>
+    <div class="col">
+      <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
+    </div>
+    <div class="col">
+      <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
+    </div>
+    <div class="col">
+      <%= link_to image_tag('motori.png', class: "img-thumbnail"), announcements_path %>
+    </div>
+  </div>
 </div>

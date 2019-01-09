@@ -41,13 +41,16 @@ class AnnouncementsController < ApplicationController
   end
 
   def index
+    categoria = params[:categoria]
     search = params[:search]
-    if search
+    if search && categoria.nil?
       @announcements = Announcement.none
       search.split.each do |s|
         res = Announcement.where('titolo LIKE ? OR descrizione LIKE ?', "%#{s}%", "%#{s}%")
         @announcements = @announcements.or(res)
       end
+    elsif categoria
+      @announcements = Announcement.where('categoria LIKE ?', "%#{categoria}%")
     else
       @announcements = Announcement.all
     end
