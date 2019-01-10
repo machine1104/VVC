@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+  
   def home
     @announcements = Announcement.first(6)
   end

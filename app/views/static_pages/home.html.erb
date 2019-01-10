@@ -90,54 +90,24 @@
         <h5> Nessun annuncio recente trovato </h5>
       </div>
     <% else %>
-      <div class="col">
-        <% if @announcements[0].immagine_1.url.nil? %>
-          <%= image_tag 'immagine-non-disponibile.png', class: "img-home" %> </br></br>
-        <% else %>
-          <%= image_tag @announcements[0].immagine_1.url, class: "img-home" if @announcements[0].immagine_1? %> </br></br>
-        <% end %>
-        <h4> <%= link_to @announcements[0].titolo.capitalize, announcement_path(@announcements[0].id) %> </h4></br>
-        <div class="row justify-content-between">
-          <div class="col-6">
-            <h6>di <%= get_username(@announcements[0].user_id) %> </h6>
-          </div>
-          <div class="col-4">
-            <h6><%= @announcements[0].prezzo %>0 €</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <% if @announcements[1].immagine_1.url.nil? %>
-          <%= image_tag 'immagine-non-disponibile.png', class: "img-home" %> </br></br>
-        <% else %>
-          <%= image_tag @announcements[1].immagine_1.url, class: "img-home" if @announcements[1].immagine_1? %> </br></br>
-        <% end %>
-        <h4> <%= link_to @announcements[1].titolo.capitalize, announcement_path(@announcements[1].id) %> </h4></br>
-        <div class="row justify-content-between">
-          <div class="col-6">
-            <h6>di <%= get_username(@announcements[1].user_id) %> </h6>
-          </div>
-          <div class="col-4">
-            <h6><%= @announcements[1].prezzo %>0 €</h6>
+      <% @announcements.each do |ann| %>
+        <div class="col">
+          <% if ann.immagine_1.url.nil? %>
+            <%= image_tag 'immagine-non-disponibile.png', class: "img-home" %> </br></br>
+          <% else %>
+            <%= image_tag ann.immagine_1.url, class: "img-home" if ann.immagine_1? %> </br></br>
+          <% end %>
+          <h4> <%= link_to ann.titolo.capitalize, announcement_path(ann.id) %> </h4></br>
+          <div class="row justify-content-between">
+            <div class="col-6">
+              <h6>di <%= get_username(ann.user_id) %> </h6>
+            </div>
+            <div class="col-4">
+              <h6><%= ann.prezzo %>0 €</h6>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-      <% if @announcements[2].immagine_1.url.nil? %>
-          <%= image_tag 'immagine-non-disponibile.png', class: "img-home" %> </br></br>
-        <% else %>
-          <%= image_tag @announcements[2].immagine_1.url, class: "img-home" if @announcements[2].immagine_1? %> </br></br>
-        <% end %>
-        <h4> <%= link_to @announcements[2].titolo.capitalize, announcement_path(@announcements[2].id) %> </h4></br>
-        <div class="row justify-content-between">
-          <div class="col-6">
-            <h6>di <%= get_username(@announcements[2].user_id) %> </h6>
-          </div>
-          <div class="col-4">
-            <h><%= @announcements[2].prezzo %>0 €</h6>
-          </div>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
