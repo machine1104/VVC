@@ -10,6 +10,25 @@
       <% end %>
     </div>
   </div>
+
+  <div class="row align-items-center">
+    <div class="col title">
+      Cerca per regione         
+    </div>
+    <div class="col">
+      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+        <%= select_tag :regione, options_for_select(["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
+                            "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
+                            "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
+                            "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"]),
+                            class: "form-control" %>
+    </div>
+    <div class="col">
+        <%= submit_tag "Cerca", class: "btn bnt-primary"%>
+      <% end %>
+    </div>
+  </div>
+
   <div class="row" >
     <div class="col title">
       Cerca per categoria         

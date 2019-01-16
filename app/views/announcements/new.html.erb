@@ -45,6 +45,14 @@
 </span>
 
 <div class="field">
+  <%= f.label :regione %><br />
+  <%= f.select :regione, ["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
+                            "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
+                            "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
+                            "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"], {}, { class: "custom-select custom-select-sm" } %>
+</div>
+
+<div class="field">
   <%= f.label :posizione %><br />
   <%= f.text_field :posizione, autofocus: true, autocomplete: "posizione", class: "form-control form-control-sm" %>
 </div>
