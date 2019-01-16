@@ -1,18 +1,56 @@
 <% provide(:title, @user.username) %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <% if user_signed_in_with_provider? %>
-          <%= image_tag(@user.image, alt: @user.username, class: "profile") %>
-          <%= @user.username %>
+  <div class="col title">
+    Il mio profilo
+  </div>
+</div>
+<div class="container center"> 
+  <div class="row align-items-center">
+    <div class="col">
+      <% if user_signed_in_with_provider? %>
+        <%= image_tag(@user.image, alt: @user.username, class: "profile") %>
+      <% else %>
+        <%= gravatar_for @user %>
+      <% end %>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <h5>Informazioni contatti</h5>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-3 col-profilo">
+          Telefono: </br>
+          Email: 
+        </div>
+        <div class="col-3 col-profilo">
+          <%= @user.telefono%></br>
           <%= @user.email %>
-        <% else %>
-          <%= gravatar_for @user %>
-          <%= @user.username %>
-          <%= @user.email %>
-        <% end %>
-      </h1>
-    </section>
-  </aside>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h5>Informazioni contatti</h5>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-3 col-profilo">
+          Username: </br>
+          Nome: </br>
+          Cognome: </br>
+          Indirizzo: </br>
+          Comune:
+        </div>
+        <div class="col-3 col-profilo">
+          <%= @user.username%></br>
+          <%= @user.nome%></br>
+          <%= @user.cognome%></br>
+          <%= @user.indirizzo%></br>
+          <%= @user.comune%>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

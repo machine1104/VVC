@@ -191,6 +191,7 @@ footer {
 
 /* sidebar */
 
+/*
 aside {
   section.user_info {
     margin-top: 20px;
@@ -219,7 +220,7 @@ aside {
       margin-top: 0px;
     }
   }
-}
+}*/
 
 .gravatar {
   margin-right: 10px;
@@ -452,4 +453,8 @@ form {
   width: 350px;
   height: 175px;
   border-radius: 4px;
+}
+
+.col-profilo {
+  text-align: left;
 }
