@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20190116155506) do
     t.float "prezzo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "immagine"
     t.string "immagine_1"
     t.string "immagine_2"
     t.string "immagine_3"

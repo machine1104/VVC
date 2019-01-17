@@ -1,6 +1,7 @@
 <div class="center">
+  <!--ricerca-->
   <div class="row align-items-center">
-    <div class="col title">
+    <div class="col-3 title">
       Cosa stai cercando?
     </div>
     <div class="col-7">
@@ -10,31 +11,13 @@
       <% end %>
     </div>
   </div>
-
-  <div class="row align-items-center">
-    <div class="col title">
-      Cerca per regione         
-    </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= select_tag :regione, options_for_select(["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
-                            "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
-                            "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
-                            "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"]),
-                            class: "form-control" %>
-    </div>
-    <div class="col">
-        <%= submit_tag "Cerca" %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row" >
-    <div class="col title">
-      Cerca per categoria         
-    </div>
-  </div>
-  <div class= "row">
+  <!--regione e categoria-->
+  <div class="row">
+    <div class="col-8">
+      <div class="row title justify-content-center">
+        Categoria 
+      </div>
+      <div class="row justify-content-center">
     <div class="col">
       <%= form_tag announcements_path, method: :get, class: "form-group" do %>
         <%= link_to image_tag('motori.png', class: "img-thumbnail"), controller: "announcements", categoria: "Motori e accessori" %> </br></br>
@@ -66,7 +49,7 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
+      <div class="row justify-content-center">
     <div class="col">
       <%= form_tag announcements_path, method: :get, class: "form-group" do %>
         <%= link_to image_tag('hobby.png', class: "img-thumbnail"), controller: "announcements", categoria: "Hobby" %> </br></br>
@@ -98,10 +81,26 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="col title">
-      Annunci recenti         
     </div>
+    <div class="col-3">
+      <div class="row title justify-content-center">
+        Regione 
+      </div>
+      <div class="row justify-content-center">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+        <%= select_tag :regione, options_for_select(["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
+                            "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
+                            "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
+                            "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"]),
+                            class: "form-control" %>
+        <%= submit_tag "Cerca", class: "btn btn-form" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!--annunci recenti-->
+  <div class="row title justify-content-center", align="center">
+    Annunci recenti         
   </div>
   <div class="row" >
     <% if @announcements.empty? %>
