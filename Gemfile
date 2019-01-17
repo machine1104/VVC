@@ -19,6 +19,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'          
 gem 'mini_magick'
 gem 'social-share-button'
+gem "geocoder"
 
 
 group :development, :test do
