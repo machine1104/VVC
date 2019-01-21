@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get   '/about',                   to: 'static_pages#about'
   get   '/contatti',                to: 'static_pages#contatti'
   get   '/users',                   to: 'users#index'
+  get '/announcements/filter',      to: 'announcements#filter'
+  get '/announcements/nearby', to: 'announcements#nearby'
 
   resources :users, only: [:show] do
     resources :announcements, except: [:index]

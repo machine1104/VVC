@@ -1,15 +1,20 @@
 <li id="announcement-<%= announcement.id %>">
-  <div class="row">
-    <div class="col-md-6">
-      <%= image_tag announcement.immagine_1.url if announcement.immagine_1? %>
+  <div class="row align-items-center">
+    <div class="col-8">
+      <% if announcement.immagine_1? %>
+        <%= image_tag announcement.immagine_1.url, class: "img-index" %>
+      <% else %>
+        <%= image_tag 'immagine-non-disponibile.png', class: "img-index" %>
+      <% end %>
     </div>
-    <div class="col-md-6">
+    <div class="col-4">
       <h3>
           <%= link_to announcement.titolo, announcement_path(announcement.id) %>
       </h3>
       <span class="content">
         <%= announcement.categoria %><br>
         <%= announcement.descrizione %><br>
+        <%= announcement.prezzo %> €<br>
       </span>
       <span class="timestamp"> Posted
         <%= time_ago_in_words(announcement.created_at) %> ago.</span>

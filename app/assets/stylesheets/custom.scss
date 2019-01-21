@@ -63,12 +63,9 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
-  font-weight: normal;
-  color: $gray-light;
 }
 
 p {
@@ -431,7 +428,7 @@ span.picture {
   border-color: $dark;
   width: 80px;
   height: 80px;
-  background-color: transparent;
+  background-color: white;
   padding: 0.7rem;
 }
 
@@ -457,4 +454,16 @@ form {
 
 .col-profilo {
   text-align: left;
+}
+
+.img-index {
+  width: 330px;
+  height: 190px;
+}
+
+#container-categoria {
+  border: 1px solid black;
+  background-color: $gray-medium-light;
+  border-radius: 4px;
+  margin-bottom: 50px;
 }

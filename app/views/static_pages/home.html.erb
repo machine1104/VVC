@@ -1,7 +1,7 @@
 <div class="center">
   <!--ricerca-->
   <div class="row align-items-center">
-    <div class="col-3 title">
+    <div class="col title">
       Cosa stai cercando?
     </div>
     <div class="col-7">
@@ -11,105 +11,110 @@
       <% end %>
     </div>
   </div>
-  <!--regione e categoria-->
-  <div class="row">
-    <div class="col-8">
-      <div class="row title justify-content-center">
-        Categoria 
+  <!--categoria-->
+  <div class="container" id="container-categoria">
+    <div class="row">
+      <div class="col title">
+        Ricerca per categoria 
       </div>
-      <div class="row justify-content-center">
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('motori.png', class: "img-thumbnail"), controller: "announcements", categoria: "Motori e accessori" %> </br></br>
-        <%= link_to "Motori e accessori", controller: "announcements", categoria: "Motori e accessori" %>
-      <% end %>
     </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('elettronica.png', class: "img-thumbnail"), controller: "announcements", categoria: "Elettronica" %> </br></br>
-        <%= link_to "Elettronica", controller: "announcements", categoria: "Elettronica" %>
-      <% end %>
-    </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('abbigliamento.png', class: "img-thumbnail"), controller: "announcements", categoria: "Abbigliamento" %> </br></br>
-        <%= link_to "Abbigliamento", controller: "announcements", categoria: "Abbigliamento" %>
-      <% end %>
-    </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('arredamento.png', class: "img-thumbnail"), controller: "announcements", categoria: "Arredamento" %> </br></br>
-        <%= link_to "Arredamento", controller: "announcements", categoria: "Arredamento" %>
-      <% end %>
-    </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('sport.png', class: "img-thumbnail"), controller: "announcements", categoria: "Sport" %> </br></br>
-        <%= link_to "Sport", controller: "announcements", categoria: "Sport" %>
-      <% end %>
-    </div>
-  </div>
-      <div class="row justify-content-center">
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('hobby.png', class: "img-thumbnail"), controller: "announcements", categoria: "Hobby" %> </br></br>
-        <%= link_to "Hobby", controller: "announcements", categoria: "Hobby" %>
-      <% end %>
-    </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('attrezzature.png', class: "img-thumbnail"), controller: "announcements", categoria: "Attrezzature" %> </br></br>
-        <%= link_to "Attrezzature", controller: "announcements", categoria: "Attrezzature" %>
-      <% end %>
-    </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('elettrodomestici.png', class: "img-thumbnail"), controller: "announcements", categoria: "Elettrodomestici" %> </br></br>
-        <%= link_to "Elettrodomestici", controller: "announcements", categoria: "Elettrodomestici" %>
-      <% end %>
-    </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('giocattoli.png', class: "img-thumbnail"), controller: "announcements", categoria: "Giocattoli" %> </br></br>
-        <%= link_to "Giocattoli", controller: "announcements", categoria: "Giocattoli" %>
-      <% end %>
-    </div>
-    <div class="col">
-      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
-        <%= link_to image_tag('videogames.png', class: "img-thumbnail"), controller: "announcements", categoria: "Videogiochi e console" %> </br></br>
-        <%= link_to "Videogiochi e console", controller: "announcements", categoria: "Videogiochi e console" %>
-      <% end %>
-    </div>
-  </div>
-    </div>
-    <div class="col-3">
-      <div class="row title justify-content-center">
-        Regione 
-      </div>
-      <div class="row justify-content-center">
+    <div class="row justify-content-center">
+      <div class="col">
         <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('motori.png', class: "img-thumbnail"), controller: "announcements", categoria: "Motori e accessori" %> </br></br>
+          <%= link_to "Motori e accessori", controller: "announcements", categoria: "Motori e accessori" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('elettronica.png', class: "img-thumbnail"), controller: "announcements", categoria: "Elettronica" %> </br></br>
+          <%= link_to "Elettronica", controller: "announcements", categoria: "Elettronica" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('abbigliamento.png', class: "img-thumbnail"), controller: "announcements", categoria: "Abbigliamento" %> </br></br>
+          <%= link_to "Abbigliamento", controller: "announcements", categoria: "Abbigliamento" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('arredamento.png', class: "img-thumbnail"), controller: "announcements", categoria: "Arredamento" %> </br></br>
+          <%= link_to "Arredamento", controller: "announcements", categoria: "Arredamento" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('sport.png', class: "img-thumbnail"), controller: "announcements", categoria: "Sport" %> </br></br>
+          <%= link_to "Sport", controller: "announcements", categoria: "Sport" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('hobby.png', class: "img-thumbnail"), controller: "announcements", categoria: "Hobby" %> </br></br>
+          <%= link_to "Hobby", controller: "announcements", categoria: "Hobby" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('attrezzature.png', class: "img-thumbnail"), controller: "announcements", categoria: "Attrezzature" %> </br></br>
+          <%= link_to "Attrezzature", controller: "announcements", categoria: "Attrezzature" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('elettrodomestici.png', class: "img-thumbnail"), controller: "announcements", categoria: "Elettrodomestici" %> </br></br>
+          <%= link_to "Elettrodomestici", controller: "announcements", categoria: "Elettrodomestici" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('giocattoli.png', class: "img-thumbnail"), controller: "announcements", categoria: "Giocattoli" %> </br></br>
+          <%= link_to "Giocattoli", controller: "announcements", categoria: "Giocattoli" %>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= form_tag announcements_path, method: :get, class: "form-group" do %>
+          <%= link_to image_tag('videogames.png', class: "img-thumbnail"), controller: "announcements", categoria: "Videogiochi e console" %> </br></br>
+          <%= link_to "Videogiochi e console", controller: "announcements", categoria: "Videogiochi e console" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col">
+      <h2>Ricerca per regione<h2>
+      <%= form_tag announcements_path, method: :get, class: "form-group" do %>
         <%= select_tag :regione, options_for_select(["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
                             "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
                             "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
                             "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"]),
                             class: "form-control" %>
         <%= submit_tag "Cerca", class: "btn btn-form" %>
-        <% end %>
-      </div>
+      <% end %>
+    </div>
+    <div class="col">
+      <h2>Ricerca nelle vicinanze<h2>
+      <%= form_tag announcements_nearby_path, method: :get, class: "form-group" do %>
+        <%= text_field_tag :place, params[:place], class: "form-control", placeholder: "Inserisci un indirizzo", id: "autocomplete_address" %>
+        <%= submit_tag "Cerca", class: "btn btn-form" %>
+      <% end %>
     </div>
   </div>
   <!--annunci recenti-->
-  <div class="row title justify-content-center", align="center">
+  <div class="row title" >
     Annunci recenti         
   </div>
-  <div class="row" >
+  <div class="row justify-content-start" >
     <% if @announcements.empty? %>
-      <div class="col title">
+      <div class="col-5 title">
         <h5> Nessun annuncio recente trovato </h5>
       </div>
     <% else %>
       <% @announcements.each do |ann| %>
-        <div class="col">
+        <div class="col-5">
           <% if ann.immagine_1.url.nil? %>
             <%= image_tag 'immagine-non-disponibile.png', class: "img-home" %> </br></br>
           <% else %>
@@ -117,10 +122,10 @@
           <% end %>
           <h4> <%= link_to ann.titolo.capitalize, announcement_path(ann.id) %> </h4></br>
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col">
               <h6>di <%= get_username(ann.user_id) %> </h6>
             </div>
-            <div class="col-4">
+            <div class="col">
               <h6><%= ann.prezzo %>0 €</h6>
             </div>
           </div>

@@ -13,4 +13,9 @@ class Announcement < ApplicationRecord
   validates :categoria, presence: true
   validates :prezzo, presence: true
   validates :email, presence: true
+
+  def self.filter(prezzo, regione, categoria)
+    return scoped unless prezzo.present? || regione.present? || categoria.present?
+      where(['regione LIKE ? AND categoria LIKE ?', "%#{regione}%", "%#{categoria}%"]).reorder('prezzo ' + prezzo)
+  end
 end

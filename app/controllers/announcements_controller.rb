@@ -66,6 +66,33 @@ class AnnouncementsController < ApplicationController
     @announcements = Announcement.where(user_id: current_user.id).paginate(page: params[:page], per_page: 15)
   end
 
+  def filter
+    if params[:prezzo] == 'Crescente'
+      prezzo = 'ASC'
+    else
+      prezzo = 'DESC'
+    end
+    regione = params[:regione]
+    categoria = params[:categoria]
+    @announcements = Announcement.filter(prezzo, regione, categoria)
+    @announcements = @announcements.paginate(page: params[:page], per_page: 15)
+  end
+
+  def nearby
+    place = params[:place]
+    @announcements_nearby = Announcement.none
+    @announcements = Announcement.all
+    puts @announcements
+    curr_pos = Geocoder.search(place).first.coordinates
+    @announcements.each do |ann|
+      near_pos = Geocoder.search(ann.posizione).first.coordinates
+      dist = Geocoder::Calculations.distance_between(curr_pos, near_pos)
+      res = 
+        @announcements_nearby = @announcements_nearby.or(ann)
+    end
+    @announcements = @announcements_nearby.paginate(page: params[:page], per_page: 15)
+  end
+
   private
 
   def announcement_params
