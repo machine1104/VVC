@@ -116,7 +116,7 @@
       </div>
     <% else %>
       <% @announcements.each do |ann| %>
-        <div class="col-5">
+        <div class="col-4">
           <% if ann.immagine_1.url.nil? %>
             <%= image_tag 'immagine-non-disponibile.png', class: "img-home" %> </br></br>
           <% else %>
