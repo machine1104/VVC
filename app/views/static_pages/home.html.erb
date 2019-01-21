@@ -85,19 +85,21 @@
   </div>
   <div class="row justify-content-center">
     <div class="col">
-      <h2>Ricerca per regione<h2>
+      <h2>Ricerca per regione</h2>
       <%= form_tag announcements_path, method: :get, class: "form-group" do %>
         <%= select_tag :regione, options_for_select(["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
                             "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
                             "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
                             "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"]),
-                            class: "form-control form-search" %>
+                            class: "form-control form-search", include_blank: "Seleziona una regione..." %>
         <%= submit_tag "Cerca", class: "btn btn-form" %>
       <% end %>
     </div>
     <div class="col">
-      <h2>Ricerca nelle vicinanze<h2>
+      <h2>Ricerca nelle vicinanze</h2>
       <%= form_tag announcements_nearby_path, method: :get, class: "form-group" do %>
+        Distanza (km): <%= select_tag :range, options_for_select(['5', '10', '20', '50', '100']),
+                            class: "form-control form-search", include_blank: "Seleziona una distanza..." %>
         <%= text_field_tag :place, params[:place], class: "form-control form-search", placeholder: "Inserisci un indirizzo", id: "autocomplete_address" %>
         <%= submit_tag "Cerca", class: "btn btn-form" %>
       <% end %>
@@ -120,7 +122,7 @@
           <% else %>
             <%= image_tag ann.immagine_1.url, class: "img-home" if ann.immagine_1? %> </br></br>
           <% end %>
-          <h4> <%= link_to ann.titolo.capitalize, announcement_path(ann.id) %> </h4></br>
+          <h4> <%= link_to ann.titolo.capitalize, announcement_path(ann.id), data: { turbolinks: false } %> </h4></br>
           <div class="row justify-content-between">
             <div class="col">
               <h6>Proprietario: <%= get_username(ann.user_id) %> </h6>

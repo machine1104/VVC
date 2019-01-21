@@ -1,15 +1,15 @@
 <li id="announcement-<%= announcement.id %>">
   <div class="row align-items-center">
-    <div class="col-8">
+    <div class="col-7">
       <% if announcement.immagine_1? %>
         <%= image_tag announcement.immagine_1.url, class: "img-index" %>
       <% else %>
         <%= image_tag 'immagine-non-disponibile.png', class: "img-index" %>
       <% end %>
     </div>
-    <div class="col-4">
+    <div class="col-5">
       <h3>
-          <%= link_to announcement.titolo, announcement_path(announcement.id) %>
+          <%= link_to announcement.titolo, announcement_path(announcement.id), data: { turbolinks: false } %>
       </h3>
       <span class="content">
         <%= announcement.categoria %><br>

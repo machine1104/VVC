@@ -1,4 +1,6 @@
 class AnnouncementsController < ApplicationController
+  include AnnouncementsHelper
+
   before_action :authenticate_user!, only: %i[create destroy edit new]
   before_action :correct_user, only: :destroy
 
@@ -67,11 +69,11 @@ class AnnouncementsController < ApplicationController
   end
 
   def filter
-    if params[:prezzo] == 'Crescente'
-      prezzo = 'ASC'
-    else
-      prezzo = 'DESC'
-    end
+    prezzo = if params[:prezzo] == 'Crescente'
+               'ASC'
+             else
+               'DESC'
+             end
     regione = params[:regione]
     categoria = params[:categoria]
     @announcements = Announcement.filter(prezzo, regione, categoria)
@@ -80,17 +82,17 @@ class AnnouncementsController < ApplicationController
 
   def nearby
     place = params[:place]
-    @announcements_nearby = Announcement.none
-    @announcements = Announcement.all
-    puts @announcements
-    curr_pos = Geocoder.search(place).first.coordinates
-    @announcements.each do |ann|
-      near_pos = Geocoder.search(ann.posizione).first.coordinates
-      dist = Geocoder::Calculations.distance_between(curr_pos, near_pos)
-      res = 
-        @announcements_nearby = @announcements_nearby.or(ann)
+    range = params[:range]
+    puts '+++++++++++++++++++'
+    puts place.empty?
+    if !place.empty?
+      curr_pos = Geocoder.search(place).first.coordinates
+      @announcements = Announcement.select { |ann| Geocoder::Calculations.distance_between(get_coordinates(ann.posizione), curr_pos) <= range }
+      @announcements = @announcements.paginate(page: params[:page], per_page: 15)
+    else
+      @announcements = Announcement.all
+      @announcements = @announcements.paginate(page: params[:page], per_page: 15)
     end
-    @announcements = @announcements_nearby.paginate(page: params[:page], per_page: 15)
   end
 
   private
