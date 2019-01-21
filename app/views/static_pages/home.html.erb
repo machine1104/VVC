@@ -91,14 +91,14 @@
                             "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
                             "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
                             "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"]),
-                            class: "form-control" %>
+                            class: "form-control form-search" %>
         <%= submit_tag "Cerca", class: "btn btn-form" %>
       <% end %>
     </div>
     <div class="col">
       <h2>Ricerca nelle vicinanze<h2>
       <%= form_tag announcements_nearby_path, method: :get, class: "form-group" do %>
-        <%= text_field_tag :place, params[:place], class: "form-control", placeholder: "Inserisci un indirizzo", id: "autocomplete_address" %>
+        <%= text_field_tag :place, params[:place], class: "form-control form-search", placeholder: "Inserisci un indirizzo", id: "autocomplete_address" %>
         <%= submit_tag "Cerca", class: "btn btn-form" %>
       <% end %>
     </div>
@@ -123,9 +123,9 @@
           <h4> <%= link_to ann.titolo.capitalize, announcement_path(ann.id) %> </h4></br>
           <div class="row justify-content-between">
             <div class="col">
-              <h6>di <%= get_username(ann.user_id) %> </h6>
+              <h6>Proprietario: <%= get_username(ann.user_id) %> </h6>
             </div>
-            <div class="col">
+            <div class="col-5">
               <h6><%= ann.prezzo %>0 €</h6>
             </div>
           </div>
