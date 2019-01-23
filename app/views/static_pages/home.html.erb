@@ -83,7 +83,7 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center align-items-center">
     <div class="col">
       <h2>Ricerca per regione</h2>
       <%= form_tag announcements_path, method: :get, class: "form-group" do %>
@@ -98,9 +98,11 @@
     <div class="col">
       <h2>Ricerca nelle vicinanze</h2>
       <%= form_tag announcements_nearby_path, method: :get, class: "form-group" do %>
-        Distanza (km): <%= select_tag :range, options_for_select(['5', '10', '20', '50', '100']),
-                            class: "form-control form-search", include_blank: "Seleziona una distanza..." %>
         <%= text_field_tag :place, params[:place], class: "form-control form-search", placeholder: "Inserisci un indirizzo", id: "autocomplete_address" %>
+        <div class="slidecontainer">
+        <%= range_field_tag "distance_range", 50, min: 1, max: 100, class: "slider", id: "myRange"%>
+          <p>Distanza: <span id="demo"></span> km</p>
+        </div>
         <%= submit_tag "Cerca", class: "btn btn-form" %>
       <% end %>
     </div>

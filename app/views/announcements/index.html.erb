@@ -2,9 +2,9 @@
 <div class="row">
     <h1> Annunci </h1>
 </div>
-<div class="row">
-    <div class="col-3">
-        <h4>Filtra per:</h4>
+<div class="row justify-content-center">
+    <div class="col-3", id="filtri-index">
+        </br><h4>Filtra per:</h4></br>
         <%= form_tag announcements_filter_path, method: :get, class: "form-group" do %>
             Prezzo:
             <%= select_tag :prezzo, options_for_select(["Crescente", "Decrescente"]), include_blank: "Seleziona ordine...", class: "form-control" %>
@@ -19,7 +19,12 @@
                             "Hobby", "Attrezzature", "Elettrodomestici", "Giocattoli", "Videogiochi e console"]),
                                 class: "form-control", include_blank: "Seleziona una categoria..." %>
             Distanza:
-            <%= submit_tag "Applica filtri", class: "btn btn-form" %>
+            <%= text_field_tag :place, params[:place], class: "form-control", placeholder: "Inserisci un indirizzo", id: "autocomplete_address" %>
+            <div class="slidecontainer">
+                <%= range_field_tag "distance_range", 50, min: 1, max: 100, class: "slider filter-width", id: "myRange" %>
+                    <p>Distanza: <span id="demo"></span> km</p>
+            </div>
+            <%= submit_tag "Applica filtri", class: "btn btn-form filter-width" %>
         <% end %>
     </div>
     <div class="col">

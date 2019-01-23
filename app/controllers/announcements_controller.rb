@@ -82,12 +82,10 @@ class AnnouncementsController < ApplicationController
 
   def nearby
     place = params[:place]
-    range = params[:range]
-    puts '+++++++++++++++++++'
-    puts place.empty?
+    range = params[:distance_range]
     if !place.empty?
       curr_pos = Geocoder.search(place).first.coordinates
-      @announcements = Announcement.select { |ann| Geocoder::Calculations.distance_between(get_coordinates(ann.posizione), curr_pos) <= range }
+      @announcements = Announcement.select { |ann| Geocoder::Calculations.distance_between(get_coordinates(ann.posizione), curr_pos) <= range.to_f }
       @announcements = @announcements.paginate(page: params[:page], per_page: 15)
     else
       @announcements = Announcement.all
