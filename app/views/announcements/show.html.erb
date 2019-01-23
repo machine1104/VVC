@@ -75,8 +75,48 @@
   <!-- /.row -->
   
   <div class="col-4">
-    <%= social_share_button_tag(@announcement.titolo, :url => request.original_url, desc: @announcement.descrizione) %>
+    <%= social_share_button_tag(@announcement.titolo, url: request.original_url, desc: @announcement.descrizione) %>
   </div>
+  
+  <%= button_tag image_tag('report.png'), type: "button", data: { toggle: "modal", target: "#reportModal" }, id: "report-icon"%>
+    <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Segnala annuncio</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form_for @contact do |f| %>
+              <% if flash[:error].present? %>
+                <p> flash[:error]</p>
+              <% end %>
+              <%= hidden_field_tag "announcement_id", @announcement.id %>
+
+              <%= f.label :nome , "Nome" %> <br>
+              <%= f.text_field :nome, required: true, placeholder: " Inserisci il tuo nome" %>
+
+              <br>
+              <%= f.label :email, "Email"%> <br>
+              <%= f.text_field :email, required: true, placeholder: " Inserisci la tua email" %>
+
+              <br>
+              <%= f.label :messaggio, "Messaggio" %> <br>
+              <%= f.text_area :messaggio, as: :text, placeholder: " Motiva la tua segnalazione..." %>
+              
+              <div class="row justify-content-around", id="reportRow">
+                <%= f.submit 'Invia segnalazione', class: "btn btn-form" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="modal-footer justify-content-around">
+            <button type="button" class="btn btn-form" data-dismiss="modal">Chiudi</button>
+          </div>
+        </div>
+      </div>
+    </div>
   <% if user_signed_in? %>
     <button type="button" class="btn btn-form" data-toggle="modal" data-target="#exampleModal">
       Mostra contatti
@@ -95,8 +135,8 @@
             Telefono: <%= @announcement.telefono %></br>
             Posizione: <%= @announcement.posizione %>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-form" data-dismiss="modal">Close</button>
+          <div class="modal-footer justify-content-around">
+            <button type="button" class="btn btn-form" data-dismiss="modal">Chiudi</button>
           </div>
         </div>
       </div>
@@ -115,8 +155,8 @@
           </div>
           <div class="modal-body" id="map">
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-form" data-dismiss="modal">Close</button>
+          <div class="modal-footer justify-content-around">
+            <button type="button" class="btn btn-form" data-dismiss="modal">Chiudi</button>
           </div>
         </div>
       </div>

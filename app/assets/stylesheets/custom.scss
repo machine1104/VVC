@@ -479,10 +479,6 @@ form {
   height: 400px;
 }
 
-.modal-footer {
-  margin: 0 auto;
-}
-
 /* slider distanza */
 
 .slidecontainer {
@@ -542,4 +538,8 @@ form {
 .row-index {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+#reportRow {
+  margin-bottom: auto;
 }

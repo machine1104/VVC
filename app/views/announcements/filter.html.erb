@@ -7,17 +7,17 @@
         <h4>Filtra per:</h4>
         <%= form_tag announcements_filter_path, method: :get, class: "form-group" do %>
             Prezzo:
-            <%= select_tag :prezzo, options_for_select(["Crescente", "Decrescente"]), include_blank: true, class: "form-control" %>
+            <%= select_tag :prezzo, options_for_select(["Crescente", "Decrescente"]), include_blank: "Seleziona ordine", class: "form-control" %>
             Regione:
             <%= select_tag :regione, options_for_select(["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
                                 "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
                                 "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
                                 "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"]),
-                                class: "form-control", include_blank: true %>
+                                class: "form-control", include_blank: "Seleziona una regione" %>
             Categoria:
             <%= select_tag :categoria, options_for_select(["Arredamento", "Abbigliamento", "Elettronica", "Motori e accessori", "Sport",
                             "Hobby", "Attrezzature", "Elettrodomestici", "Giocattoli", "Videogiochi e console"]),
-                                class: "form-control", include_blank: true %>
+                                class: "form-control", include_blank: "Seleziona una categoria" %>
             Distanza:
             <%= submit_tag "Applica filtri", class: "btn btn-form" %>
         <% end %>

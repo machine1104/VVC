@@ -21,6 +21,7 @@ gem 'mini_magick'
 gem 'social-share-button'
 gem 'geocoder'
 gem 'rails-i18n', '~> 5.1'
+gem 'mail_form'
 
 
 group :development, :test do

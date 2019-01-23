@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
+
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: {
     sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :announcements, only: %i[index show]
+
+  resources :contacts, only: [:new, :create]
 
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 end

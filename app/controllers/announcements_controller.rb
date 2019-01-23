@@ -40,6 +40,7 @@ class AnnouncementsController < ApplicationController
 
   def show
     @announcement = Announcement.find(params[:id])
+    @contact = Contact.new
   end
 
   def index
