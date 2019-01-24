@@ -2,7 +2,8 @@ class AnnouncementsController < ApplicationController
   include AnnouncementsHelper
 
   before_action :authenticate_user!, only: %i[create destroy edit new]
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: %i[destroy edit]
+  before_action :admin_user, only: %i[index destroy edit]
 
   def new
     @announcement = current_user.announcements.build
@@ -47,7 +48,7 @@ class AnnouncementsController < ApplicationController
     categoria = params[:categoria]
     search = params[:search]
     regione = params[:regione]
-    if categoria.nil? && regione.nil?
+    if categoria.nil? && regione.nil? && !search.nil?
       if !search.empty?
         @announcements = Announcement.none
         search.split.each do |s|
@@ -103,7 +104,25 @@ class AnnouncementsController < ApplicationController
   end
 
   def correct_user
-    @announcement = current_user.announcements.find_by(id: params[:id])
-    redirect_to root_path if @announcement.nil?
+    if current_user.admin?
+      @announcement = Announcement.find_by(id: params[:id])
+    else
+      @announcement = current_user.announcements.find_by(id: params[:id])
+    end
+    if @announcement.nil?
+      flash[:danger] = 'Non sei un amministratore'
+      redirect_to root_path
+    end
+  end
+
+  def admin_user
+    if current_user.nil?
+      redirect_to(new_user_session_path)
+    else
+      unless current_user.admin?
+        flash[:danger] = 'Non sei un amministratore'
+        redirect_to(root_url)
+      end
+    end
   end
 end

@@ -25,6 +25,11 @@
                                           data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
         <%= link_to "Modifica", edit_user_announcement_path(current_user.id, announcement.id), method: :get %>
       <% end %>
+      <% if current_user.admin? %>
+        <%= link_to "Elimina", user_announcement_path(announcement.user_id, announcement.id), method: :delete,
+                                          data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
+        <%= link_to "Modifica", edit_user_announcement_path(announcement.user_id, announcement.id), method: :get %>
+      <% end %>
     </div>
   </div>
 </li>

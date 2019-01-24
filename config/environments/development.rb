@@ -68,7 +68,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.i18n.available_locales = :it
+  config.i18n.available_locales = [:it, :en]
   config.i18n.default_locale = :it
-
 end
