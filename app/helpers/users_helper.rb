@@ -10,4 +10,8 @@ module UsersHelper
   def user_signed_in_with_provider?
     !current_user.provider.nil?
   end
+
+  def favorited?(announcement)
+    favorites.find_by(announcement_id: announcement.id).present?
+  end
 end

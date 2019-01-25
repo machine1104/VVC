@@ -19,16 +19,19 @@
       <span class="timestamp"> Pubblicato
         <%= time_ago_in_words(announcement.created_at)%> fa.
       </span>
-      <% if current_user?(announcement.user) %>
-        <% announcement %>
-        <%= link_to "Elimina", user_announcement_path(current_user.id, announcement.id), method: :delete,
-                                          data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
-        <%= link_to "Modifica", edit_user_announcement_path(current_user.id, announcement.id), method: :get %>
-      <% end %>
-      <% if current_user.admin? %>
-        <%= link_to "Elimina", user_announcement_path(announcement.user_id, announcement.id), method: :delete,
-                                          data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
-        <%= link_to "Modifica", edit_user_announcement_path(announcement.user_id, announcement.id), method: :get %>
+      <% if user_signed_in? %>
+        <% if current_user?(announcement.user) %>
+          <% announcement %>
+          <%= link_to "Elimina", user_announcement_path(current_user.id, announcement.id), method: :delete,
+                                            data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
+          <%= link_to "Modifica", edit_user_announcement_path(current_user.id, announcement.id), method: :get %>
+          <%= link_to "Aggiungi ai preferiti", announcement_favorite_path(announcement.id), method: :post %>
+        <% end %>
+        <% if current_user.admin? %>
+          <%= link_to "Elimina", user_announcement_path(announcement.user_id, announcement.id), method: :delete,
+                                            data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
+          <%= link_to "Modifica", edit_user_announcement_path(announcement.user_id, announcement.id), method: :get %>
+        <% end %>
       <% end %>
     </div>
   </div>

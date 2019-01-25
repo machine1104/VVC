@@ -1,0 +1,14 @@
+<% provide(:title, 'Preferiti') %>
+<div>
+    <h1> Preferiti </h1>
+    <% if @favorites.any? %>
+    <h3>Annunci:
+        <%= @favorites.count %>
+    </h3>
+    <%= will_paginate @favorites %>
+    <ol class="announcements">
+        <%= render @favorites %>
+    </ol>
+    <%= will_paginate @favorites %>
+    <% end %>
+</div>

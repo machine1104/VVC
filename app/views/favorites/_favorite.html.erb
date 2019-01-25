@@ -1,0 +1,38 @@
+<li id="announcement-<%= favorite.id %>">
+  <div class="row row-index align-items-center">
+    <div class="col-7 justify-content-center">
+      <% if favorite.immagine_1? %>
+        <%= image_tag favorite.immagine_1.url, class: "img-index" %>
+      <% else %>
+        <%= image_tag 'immagine-non-disponibile.png', class: "img-index" %>
+      <% end %>
+    </div>
+    <div class="col-5">
+      <h3>
+          <%= link_to favorite.titolo, announcement_path(favorite.id), data: { turbolinks: false } %>
+      </h3>
+      <span class="content">
+        <%= favorite.categoria %><br>
+        <%= favorite.descrizione %><br>
+        <%= favorite.prezzo %> €<br>
+      </span>
+      <span class="timestamp"> Pubblicato
+        <%= time_ago_in_words(favorite.created_at)%> fa.
+      </span>
+      <% if user_signed_in? %>
+        <% if current_user?(favorite.user) %>
+          <% favorite %>
+          <%= link_to "Elimina", user_announcement_path(current_user.id, favorite.id), method: :delete,
+                                            data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
+          <%= link_to "Modifica", edit_user_announcement_path(current_user.id, favorite.id), method: :get %>
+          <%= link_to "Aggiungi ai preferiti", announcement_favorite_path(favorite.id), method: :post %>
+        <% end %>
+        <% if current_user.admin? %>
+          <%= link_to "Elimina", user_announcement_path(favorite.user_id, favorite.id), method: :delete,
+                                            data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
+          <%= link_to "Modifica", edit_user_announcement_path(favorite.user_id, favorite.id), method: :get %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</li>

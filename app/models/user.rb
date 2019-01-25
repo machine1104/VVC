@@ -8,11 +8,12 @@ class User < ApplicationRecord
   attr_accessor :remember_token
 
   before_save do
-      email.downcase!
-      username.downcase!
+    email.downcase!
+    username.downcase!
   end
 
   has_many :announcements, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :username , presence: true, length: 5..128, uniqueness: { case_sensitive:false }
 
@@ -33,5 +34,13 @@ class User < ApplicationRecord
       end
     end
   end
-  
+
+  def favorite(announcement)
+    favorites.find_or_create_by(announcement: announcement)
+  end
+
+  def unfavorite(announcement)
+    favorites.where(announcement: announcement).destroy_all
+    announcement.reload
+  end
 end

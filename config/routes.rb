@@ -16,9 +16,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :announcements, except: [:index]
     get '/miei-annunci', to: 'announcements#my_announcement_index'
+    get '/preferiti', to: 'favorites#index'
   end
 
-  resources :announcements, only: %i[index show]
+  resources :announcements, only: %i[index show] do
+    resource :favorite, only: [:create, :destroy]
+  end
 
   resources :contacts, only: [:new, :create]
 

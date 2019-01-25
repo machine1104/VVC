@@ -3,7 +3,6 @@ class AnnouncementsController < ApplicationController
 
   before_action :authenticate_user!, only: %i[create destroy edit new]
   before_action :correct_user, only: %i[destroy edit]
-  before_action :admin_user, only: %i[index destroy edit]
 
   def new
     @announcement = current_user.announcements.build
@@ -63,7 +62,9 @@ class AnnouncementsController < ApplicationController
     else
       @announcements = Announcement.where('regione LIKE ?', "%#{regione}%")
     end
+    @announcements = @announcements.favorited_by(params[:favorited]) if params[:favorited].present?
     @announcements = @announcements.paginate(page: params[:page], per_page: 15)
+
   end
 
   def my_announcement_index

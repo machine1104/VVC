@@ -1,5 +1,5 @@
 <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-    <%= link_to "Vieni, Vedi, Compra!", root_path,  class: 'navbar-brand mr-0 mr-md-2"', id:'logo', data: { turbolinks: false }%>
+    <%= link_to "Vieni Vedi Compra!", root_path,  class: 'navbar-brand mr-0 mr-md-2"', id:'logo', data: { turbolinks: false }%>
     <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         <div class="btn-group" role="group">
@@ -22,6 +22,7 @@
                     <%= link_to "Profilo", current_user, class:"dropdown-item"%>
                     <%= link_to "Modifica profilo", edit_user_registration_path, class:"dropdown-item" %>
                     <%= link_to "I miei annunci", user_miei_annunci_path(current_user.id), class:"dropdown-item" %>
+                    <%= link_to "Preferiti", user_preferiti_path(current_user.id), class:"dropdown-item" %>
                     <% if current_user.admin? %>
                         <%= link_to "Tutti gli utenti", users_path, class:"dropdown-item"%>
                         <%= link_to "Tutti gli annunci", announcements_path, class:"dropdown-item"%>
