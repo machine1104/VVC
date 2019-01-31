@@ -43,4 +43,8 @@ class User < ApplicationRecord
     favorites.where(announcement: announcement).destroy_all
     announcement.reload
   end
+
+  def favorited?(announcement)
+    favorites.find_by(announcement_id: announcement.id).present?
+  end
 end

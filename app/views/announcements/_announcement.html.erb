@@ -25,7 +25,12 @@
           <%= link_to "Elimina", user_announcement_path(current_user.id, announcement.id), method: :delete,
                                             data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
           <%= link_to "Modifica", edit_user_announcement_path(current_user.id, announcement.id), method: :get %>
-          <%= link_to "Aggiungi ai preferiti", announcement_favorite_path(announcement.id), method: :post %>
+        <% else %>
+          <% if current_user.favorited?(announcement) %>
+            <%= link_to "Elimina dai preferiti", announcement_favorite_path(announcement.id), method: :delete %>
+          <% else %>
+            <%= link_to "Aggiungi ai preferiti", announcement_favorite_path(announcement.id), method: :post %>
+          <% end %>
         <% end %>
         <% if current_user.admin? %>
           <%= link_to "Elimina", user_announcement_path(announcement.user_id, announcement.id), method: :delete,

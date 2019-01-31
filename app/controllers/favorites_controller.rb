@@ -5,16 +5,17 @@ class FavoritesController < ApplicationController
   def create
     current_user.favorite(@announcement)
     @contact = Contact.new
-    render 'announcements/show'
+    redirect_to announcements_path
   end
 
   def destroy
     current_user.unfavorite(@announcement)
-    render 'announcements/show'
+    @contact = Contact.new
+    redirect_to announcements_path
   end
 
   def index
-    @favorites = Announcement.joins(:favorites).where(user_id: current_user.id)
+    @favorites = Announcement.joins(:favorites).where("favorites.user_id == ?", current_user.id)
     @favorites = @favorites.paginate(page: params[:page], per_page: 15)
   end
 
