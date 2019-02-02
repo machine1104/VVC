@@ -433,10 +433,6 @@ span.picture {
   padding: 0.7rem;
 }
 
-.row {
-  margin-bottom: 50px;
-}
-
 form {
   a {
     color: black;
@@ -545,10 +541,30 @@ form {
 }
 
 .row-question {
-  width: 100%;
-  margin-left: 0px;
+  display: inline-block;
+  width: 500px;
+  background: $dark;
+  color: white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border: 2px solid $dark;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+}
+.row-answer {
+  display: inline-block;
+  width: 500px;
+  border: 2px solid $dark;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
 }
 
-.questions {
-  width: 100%;
+ul {
+  list-style-type: none;
 }

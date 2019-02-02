@@ -164,11 +164,9 @@
   <% else %>
     Accedi per visualizzare i contatti e la posizione.
   <% end %>
-  <div class="row">
-    <ol class="questions">
-      <%= render @questions %>
-    </ol>
-  </div>
+  <br><br>
+  <h2>Domande e Risposte</h2>
+  <%= render @questions %>
   <div class="row">
     <% if user_signed_in? %>
       <% if current_user.id != @announcement.user_id %>
@@ -189,4 +187,8 @@
     <% end %>
   </div>
 </div>
+
+
+  
+  
 <!-- /.container -->
