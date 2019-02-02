@@ -1,6 +1,7 @@
 class Announcement < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :questions, dependent: :destroy
 
   scope :favorited_by, -> (username) { joins(:favorites).where(favorites: { user: User.where(username: username) }) }
 
@@ -11,7 +12,7 @@ class Announcement < ApplicationRecord
   mount_uploader :immagine_3, PictureUploader
   mount_uploader :immagine_4, PictureUploader
   mount_uploader :immagine_5, PictureUploader
-  
+
   validates :titolo, presence: true, length: { maximum: 50 }
   validates :descrizione, presence: true
   validates :categoria, presence: true

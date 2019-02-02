@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'answer/new'
+
+  get 'answer/create'
+
+  get 'answer/destroy'
+
+  get 'questions/create'
+
+  get 'questions/destroy'
+
   get 'contacts/new'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: {
@@ -24,6 +34,10 @@ Rails.application.routes.draw do
   end
 
   resources :contacts, only: [:new, :create]
+
+  resources :questions, only: [:new, :create, :destroy]
+
+  resources :answers, only: [:new, :create, :destroy]
 
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 end

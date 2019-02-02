@@ -1,78 +1,78 @@
 <h2>Crea nuovo annuncio</h2>
 
 <%= form_for @announcement, url: user_announcements_path(current_user.id) do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-<div class="field">
-  <%= f.label :titolo %><br />
-  <%= f.text_field :titolo, autofocus: true, autocomplete: "titolo", class: "form-control form-control-sm" %>
-</div>
-
-<div class="field">
-  <%= f.label :categoria %><br />
-  <%= f.select :categoria, ["Arredamento", "Abbigliamento", "Elettronica", "Motori e accessori", "Sport",
-                            "Hobby", "Attrezzature", "Elettrodomestici", "Giocattoli", "Videogiochi e console"], {}, { class: "custom-select custom-select-sm" } %>
-</div>
-
-<div class="field">
-  <%= f.label :descrizione %><br />
-  <%= f.text_area :descrizione, class:"dvvb", autofocus: true, autocomplete: "descrizione", class: "form-control form-control-sm" %>
-</div>
-
-<span class="picture">
- <div class="row">
-    <div class="col-6 col-md-4">
-      <%= f.label :immagine_1 %><br />
-      <%= f.file_field :immagine_1 %>
-    </div>
-    <div class="col-6 col-md-4">
-      <%= f.label :immagine_2 %><br />
-      <%= f.file_field :immagine_2 %>
-    </div>
-    <div class="col-6 col-md-4">
-      <%= f.label :immagine_3 %><br />
-      <%= f.file_field :immagine_3 %>
-    </div>
-    <div class="col-6 col-md-4">
-      <%= f.label :immagine_4 %><br />
-      <%= f.file_field :immagine_4 %>
-    </div>
-    <div class="col-6 col-md-4">
-      <%= f.label :immagine_5 %><br />
-      <%= f.file_field :immagine_5 %>
-    </div>
+  <div class="field">
+    <%= f.label :titolo %><br />
+    <%= f.text_field :titolo, autofocus: true, autocomplete: "titolo", class: "form-control form-control-sm" %>
   </div>
-</span>
 
-<div class="field">
-  <%= f.label :regione %><br />
-  <%= f.select :regione, ["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
-                            "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
-                            "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
-                            "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"], {}, { class: "custom-select custom-select-sm" } %>
-</div>
+  <div class="field">
+    <%= f.label :categoria %><br />
+    <%= f.select :categoria, ["Arredamento", "Abbigliamento", "Elettronica", "Motori e accessori", "Sport",
+                              "Hobby", "Attrezzature", "Elettrodomestici", "Giocattoli", "Videogiochi e console"], {}, { class: "custom-select custom-select-sm" } %>
+  </div>
 
-<div class="field">
-  <%= f.label :posizione %><br />
-  <%= f.text_field :posizione, class: "form-control form-control-sm", id: "autocomplete_address" %>
-</div>
+  <div class="field">
+    <%= f.label :descrizione %><br />
+    <%= f.text_area :descrizione, autofocus: true, autocomplete: "descrizione", class: "form-control form-control-sm" %>
+  </div>
 
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-sm"%>
-</div>
+  <span class="picture">
+  <div class="row">
+      <div class="col-6 col-md-4">
+        <%= f.label :immagine_1 %><br />
+        <%= f.file_field :immagine_1 %>
+      </div>
+      <div class="col-6 col-md-4">
+        <%= f.label :immagine_2 %><br />
+        <%= f.file_field :immagine_2 %>
+      </div>
+      <div class="col-6 col-md-4">
+        <%= f.label :immagine_3 %><br />
+        <%= f.file_field :immagine_3 %>
+      </div>
+      <div class="col-6 col-md-4">
+        <%= f.label :immagine_4 %><br />
+        <%= f.file_field :immagine_4 %>
+      </div>
+      <div class="col-6 col-md-4">
+        <%= f.label :immagine_5 %><br />
+        <%= f.file_field :immagine_5 %>
+      </div>
+    </div>
+  </span>
 
-<div class="field">
-  <%= f.label :telefono %><br />
-  <%= f.text_field :telefono, autofocus: true, autocomplete: "telefono", class: "form-control form-control-sm" %>
-</div>
+  <div class="field">
+    <%= f.label :regione %><br />
+    <%= f.select :regione, ["Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna",
+                              "Friuli Venezia Giulia", "Lazio", "Liguria", "Lombardia", "Marche",
+                              "Molise", "Piemonte", "Puglia", "Sardegna", "Sicilia", "Toscana",
+                              "Trentino Alto Adige", "Umbria", "Valla d'Aosta", "Veneto"], {}, { class: "custom-select custom-select-sm" } %>
+  </div>
 
-<div class="field">
-  <%= f.label :prezzo %><br />
-  <%= f.number_field :prezzo, step: :any, autofocus: true, autocomplete: "prezzo", class: "form-control form-control-sm" %>
-</div>
+  <div class="field">
+    <%= f.label :posizione %><br />
+    <%= f.text_field :posizione, class: "form-control form-control-sm", id: "autocomplete_address" %>
+  </div>
 
-<div class="actions">
-  <%= f.submit "Crea annuncio", class: "btn btn-form" %>
-</div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-sm"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono, autofocus: true, autocomplete: "telefono", class: "form-control form-control-sm" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prezzo %><br />
+    <%= f.number_field :prezzo, step: :any, autofocus: true, autocomplete: "prezzo", class: "form-control form-control-sm" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Crea annuncio", class: "btn btn-form" %>
+  </div>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190125114102) do
+ActiveRecord::Schema.define(version: 20190202165321) do
 
   create_table "announcements", force: :cascade do |t|
     t.integer "user_id"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20190125114102) do
     t.index ["user_id"], name: "index_announcements_on_user_id"
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.text "contenuto"
+    t.integer "user_id"
+    t.integer "announcement_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["announcement_id"], name: "index_answers_on_announcement_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "announcement_id"
@@ -40,6 +52,16 @@ ActiveRecord::Schema.define(version: 20190125114102) do
     t.datetime "updated_at", null: false
     t.index ["announcement_id"], name: "index_favorites_on_announcement_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "contenuto"
+    t.integer "user_id"
+    t.integer "announcement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["announcement_id"], name: "index_questions_on_announcement_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

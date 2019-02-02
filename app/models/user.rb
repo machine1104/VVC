@@ -14,6 +14,9 @@ class User < ApplicationRecord
 
   has_many :announcements, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :questions, dependent: :destroy, through: :announcements
+  has_many :answers, dependent: :destroy, through: :announcements
+
 
   validates :username , presence: true, length: 5..128, uniqueness: { case_sensitive:false }
 

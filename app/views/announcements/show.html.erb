@@ -164,5 +164,29 @@
   <% else %>
     Accedi per visualizzare i contatti e la posizione.
   <% end %>
+  <div class="row">
+    <ol class="questions">
+      <%= render @questions %>
+    </ol>
+  </div>
+  <div class="row">
+    <% if user_signed_in? %>
+      <% if current_user.id != @announcement.user_id %>
+        <%= form_for @question, url: questions_path do |f| %>
+          <%= hidden_field_tag 'announcement_id', @announcement.id %>
+          <%= hidden_field_tag 'user_id', current_user.id %>
+          <div class="field">
+            <%= f.label "Fai una domanda:" %><br/>
+            <%= f.text_area :contenuto, autofocus: true, autocomplete: "contenuto", class: "form-control form-control-sm" %>
+          <div/>
+          <div class="actions">
+            <%= f.submit "Crea domanda", class: "btn btn-form" %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      Accedi per fare una domanda.
+    <% end %>
+  </div>
 </div>
 <!-- /.container -->

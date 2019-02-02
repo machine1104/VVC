@@ -15,5 +15,4 @@
 //= require turbolinks
 //= require popper
 //= require bootstrap
-//= require disqus_rails
 //= require_tree

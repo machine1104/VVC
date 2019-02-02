@@ -41,6 +41,10 @@ class AnnouncementsController < ApplicationController
   def show
     @announcement = Announcement.find(params[:id])
     @contact = Contact.new
+    @questions = Question.where(announcement_id: @announcement.id)
+    @question = Question.new
+    @answers = Answer.where(announcement_id: @announcement.id)
+    @answer = Answer.new
   end
 
   def index
