@@ -11,6 +11,10 @@ And (/^I am on the (.*) page$/) do |url|
     visit edit_user_announcement_path(@user.id,Announcement.where(user_id: @user.id).first.id)
   elsif(url == "miei annunci")
     visit user_miei_annunci_path(@user.id)
+  elsif(url == "announcements")
+    visit announcements_path
+  elsif(url == "home")
+    visit root_path
   else 
     visit 'users/'+url
   end
@@ -97,7 +101,31 @@ end
 
 
 When (/^I click on (.*) link$/) do |value|
-  find(:xpath, "//a[@href='/users/"+value+"']").click
+  if value == "logo"
+    page.find_link("Vieni Vedi Compra!").click
+  elsif value == "motori"
+    page.find(:xpath, "//a/img[@alt='Motori']/..").click
+  elsif value == "elettronica"
+    page.find(:xpath, "//a/img[@alt='Elettronica']/..").click 
+  elsif value == "abbigliamento"
+    page.find(:xpath, "//a/img[@alt='Abbigliamento']/..").click
+  elsif value == "arredamento"
+    page.find(:xpath, "//a/img[@alt='Arredamento']/..").click
+  elsif value == "sport"
+    page.find(:xpath, "//a/img[@alt='Sport']/..").click
+  elsif value == "hobby"
+    page.find(:xpath, "//a/img[@alt='Hobby']/..").click
+  elsif value == "attrezzature"
+    page.find(:xpath, "//a/img[@alt='Attrezzature']/..").click
+  elsif value == "elettrodomestici"
+    page.find(:xpath, "//a/img[@alt='Elettrodomestici']/..").click
+  elsif value == "giocattoli"
+    page.find(:xpath, "//a/img[@alt='Giocattoli']/..").click
+  elsif value == "videogiochi"
+    page.find(:xpath, "//a/img[@alt='Videogames']/..").click
+  else
+    find(:xpath, "//a[@href='/users/"+value+"']").click
+  end
 end
 
 
@@ -135,7 +163,35 @@ Then (/^ad should be deleted$/) do
   expect(aux).to be_nil
 end
 
-
+Then (/^I should be on (.*) page$/) do |v|
+  if v == "login"
+    expect(page).to have_current_path("/users/login")
+  elsif v == "home"
+    expect(page).to have_current_path("/")
+  elsif v == "sign_up"
+    expect(page).to have_current_path("/users/sign_up")
+  elsif v == "motori"
+    expect(page).to have_current_path("/announcements?categoria=Motori+e+accessori")
+  elsif v == "elettronica"
+    expect(page).to have_current_path("/announcements?categoria=Elettronica")
+  elsif v == "abbigliamento"
+    expect(page).to have_current_path("/announcements?categoria=Abbigliamento")
+  elsif v == "arredamento"
+    expect(page).to have_current_path("/announcements?categoria=Arredamento")
+  elsif v == "sport"
+    expect(page).to have_current_path("/announcements?categoria=Sport")
+  elsif v == "hobby"
+    expect(page).to have_current_path("/announcements?categoria=Hobby")
+  elsif v == "attrezzature"
+    expect(page).to have_current_path("/announcements?categoria=Attrezzature")
+  elsif v == "elettrodomestici"
+    expect(page).to have_current_path("/announcements?categoria=Elettrodomestici")
+  elsif v == "giocattoli"
+    expect(page).to have_current_path("/announcements?categoria=Giocattoli")
+  elsif v == "videogiochi"
+    expect(page).to have_current_path("/announcements?categoria=Videogiochi+e+console")
+  end
+end
 
 
   
