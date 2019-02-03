@@ -76,6 +76,10 @@ class AnnouncementsController < ApplicationController
   end
 
   def filter
+    puts "+++++++++++++++++"
+    puts params
+    place = params[:place]
+    range = params[:distance_range]
     prezzo = if params[:prezzo] == 'Crescente'
                'ASC'
              else
@@ -83,8 +87,15 @@ class AnnouncementsController < ApplicationController
              end
     regione = params[:regione]
     categoria = params[:categoria]
-    @announcements = Announcement.filter(prezzo, regione, categoria)
-    @announcements = @announcements.paginate(page: params[:page], per_page: 15)
+    if !place.empty?
+      curr_pos = Geocoder.search(place).first.coordinates
+      @announcements = Announcement.filter(prezzo, regione, categoria)
+      @announcements = @announcements.select { |ann| Geocoder::Calculations.distance_between(get_coordinates(ann.posizione), curr_pos) <= range.to_f }
+      @announcements = @announcements.paginate(page: params[:page], per_page: 15)
+    else
+      @announcements = Announcement.filter(prezzo, regione, categoria)
+      @announcements = @announcements.paginate(page: params[:page], per_page: 15)
+    end
   end
 
   def nearby
