@@ -15,7 +15,9 @@
       <%= hidden_field_tag 'question_id', question.id %>
       <%= f.label "Dai una risposta:" %><br/>
       <%= f.text_area :contenuto, autofocus: true, autocomplete: "contenuto", class: "form-control form-control-sm" %>
-      <%= f.submit "Rispondi", class: "btn btn-form" %>
+      <div class="center">
+        <%= f.submit "Rispondi", class: "btn btn-form" %>
+      </div>
     <% end %>
   </div>
 <% else %>
