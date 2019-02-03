@@ -18,6 +18,9 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+    Answer.find(params[:id]).destroy
+    flash[:success] = 'Risposta eliminata correttamente'
+    redirect_to request.referrer || root_url
   end
 
   private

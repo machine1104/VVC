@@ -18,6 +18,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    Question.find(params[:id]).destroy
+    flash[:success] = 'Domanda eliminata correttamente'
+    redirect_to request.referrer || root_url
   end
 
   private

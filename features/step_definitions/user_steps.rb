@@ -8,7 +8,9 @@ And (/^I am on the (.*) page$/) do |url|
   elsif(url == "new announcement")
     visit new_user_announcement_path(@user.id)
   elsif(url == "modifica annuncio")
-    visit edit_user_announcement_path(@user.id,Announcement.where(user_id: @user.id).first.id)  
+    visit edit_user_announcement_path(@user.id,Announcement.where(user_id: @user.id).first.id)
+  elsif(url == "miei annunci")
+    visit user_miei_annunci_path(@user.id)
   else 
     visit 'users/'+url
   end
@@ -110,8 +112,10 @@ end
 
 And (/^I edit my announcement/) do
   @ad_test = FactoryBot.build(:edited_ad)
+  @ad_test.posizione = "roma"
   edit_ad(@ad_test)
 end
+
 
 Then (/^Profile should be updated$/) do
   edit_check(@user,@user_test)
@@ -123,6 +127,11 @@ end
 
 Then (/^Profile should be deleted$/) do
   aux = User.find_by(id: @user.id)
+  expect(aux).to be_nil
+end
+
+Then (/^ad should be deleted$/) do
+  aux = Announcement.find_by(id: @announcement.id)
   expect(aux).to be_nil
 end
 

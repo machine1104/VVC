@@ -41,7 +41,7 @@ module UserMethods
     fill_in('announcement_titolo', with: ad.titolo)
     fill_in('announcement_descrizione', with: ad.descrizione)
     fill_in('announcement_prezzo', with: ad.prezzo)
-    fill_in('announcement_posizione', with: ad.posizione)
+    fill_in('autocomplete_address', with: ad.posizione)
     fill_in('announcement_email', with: ad.email)
   end
   
@@ -49,7 +49,7 @@ module UserMethods
     fill_in('announcement_titolo', with: ad.titolo)
     fill_in('announcement_descrizione', with: ad.descrizione)
     fill_in('announcement_prezzo', with: ad.prezzo)
-    fill_in('announcement_posizione', with: ad.posizione)
+    fill_in('autocomplete_address', with: ad.posizione)
     fill_in('announcement_email', with: ad.email)
   end
   
