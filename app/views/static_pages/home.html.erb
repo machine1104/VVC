@@ -100,7 +100,7 @@
       <%= form_tag announcements_nearby_path, method: :get, class: "form-group" do %>
         <%= text_field_tag :place, params[:place], class: "form-control form-search", placeholder: "Inserisci un indirizzo", id: "autocomplete_address" %>
         <div class="slidecontainer">
-        <%= range_field_tag "distance_range", 50, min: 1, max: 100, class: "slider", id: "myRange"%>
+        <%= range_field_tag "distance_range", 5, min: 1, max: 30, class: "slider", id: "myRange"%>
           <p>Distanza: <span id="demo"></span> km</p>
         </div>
         <%= submit_tag "Cerca", class: "btn btn-form" %>

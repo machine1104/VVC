@@ -166,24 +166,28 @@
   <% end %>
   <br><br>
   <h2>Domande e Risposte</h2>
-  <%= render @questions %>
-  
-  <% if user_signed_in? %>
-    <% if current_user.id != @announcement.user_id %>
-      <%= form_for @question, url: questions_path do |f| %>
-        <%= hidden_field_tag 'announcement_id', @announcement.id %>
-        <%= hidden_field_tag 'user_id', current_user.id %>
-          <%= f.label "Fai una domanda:" %><br/>
-          <%= f.text_area :contenuto, autofocus: true, autocomplete: "contenuto", class: "form-control form-control-sm" %>
-
-          <%= f.submit "Crea domanda", class: "btn btn-form" %>
-     
+  <div class="row justify-content-center align-items-center">
+    <div class="col">
+      <%= render @questions %>
+    </div>
+    <div class="col">
+      <% if user_signed_in? %>
+        <% if current_user.id != @announcement.user_id %>
+          <%= form_for @question, url: questions_path do |f| %>
+            <%= hidden_field_tag 'announcement_id', @announcement.id %>
+            <%= hidden_field_tag 'user_id', current_user.id %>
+              <%= f.label "Fai una domanda:" %><br/>
+              <%= f.text_area :contenuto, autofocus: true, autocomplete: "contenuto", class: "form-control form-control-sm" %>
+    
+              <%= f.submit "Crea domanda", class: "btn btn-form" %>
+         
+          <% end %>
+        <% end %>
+      <% else %>
+        Accedi per fare una domanda.
       <% end %>
-    <% end %>
-  <% else %>
-    Accedi per fare una domanda.
-  <% end %>
-  
+    </div>
+  </div>
 </div>
 
 
