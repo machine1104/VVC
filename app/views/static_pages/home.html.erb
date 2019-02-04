@@ -103,7 +103,7 @@
         <%= range_field_tag "distance_range", 5, min: 1, max: 30, class: "slider", id: "myRange"%>
           <p>Distanza: <span id="demo"></span> km</p>
         </div>
-        <%= submit_tag "Cerca", class: "btn btn-form" %>
+        <%= submit_tag "Cerca nelle vicinanze", class: "btn btn-form" , id: "cerca-nearby" %>
       <% end %>
     </div>
   </div>
