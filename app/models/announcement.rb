@@ -3,7 +3,6 @@ class Announcement < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
-  
 
   scope :favorited_by, -> (username) { joins(:favorites).where(favorites: { user: User.where(username: username) }) }
 
@@ -22,7 +21,18 @@ class Announcement < ApplicationRecord
   validates :email, presence: true
 
   def self.filter(prezzo, regione, categoria)
-    return scoped unless prezzo.present? || regione.present? || categoria.present?
-      where(['regione LIKE ? AND categoria LIKE ?', "%#{regione}%", "%#{categoria}%"]).reorder('prezzo ' + prezzo)
+    return self unless prezzo.present? || regione.present? || categoria.present?
+
+    filtered = Announcement.all
+    if regione.present?
+      filtered = filtered.where(['regione LIKE ?', "%#{regione}%"])
+    end
+    if categoria.present?
+      filtered = filtered.where(['categoria LIKE ?', "%#{categoria}%"])
+    end
+    if prezzo.present?
+      filtered = filtered.reorder('prezzo ' + prezzo)
+    end
+    filtered
   end
 end
