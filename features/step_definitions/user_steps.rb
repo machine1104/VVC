@@ -103,6 +103,8 @@ end
 When (/^I click on (.*) link$/) do |value|
   if value == "logo"
     page.find_link("Vieni Vedi Compra!").click
+  elsif value == "contatti"
+    page.find_link("Contatti").click
   elsif value == "motori"
     page.find(:xpath, "//a/img[@alt='Motori']/..").click
   elsif value == "elettronica"
@@ -190,8 +192,25 @@ Then (/^I should be on (.*) page$/) do |v|
     expect(page).to have_current_path("/announcements?categoria=Giocattoli")
   elsif v == "videogiochi"
     expect(page).to have_current_path("/announcements?categoria=Videogiochi+e+console")
+  elsif v == "nearby"
+    expect(page).to have_current_path("/announcements/nearby?utf8=%E2%9C%93&place=Roma&distance_range=5&commit=Cerca+nelle+vicinanze")
+  elsif v == "Lazio"
+    expect(page).to have_current_path("/announcements?utf8=%E2%9C%93&regione=Lazio&commit=Cerca")
+  elsif v == "filtered"
+    expect(page).to have_current_path("/announcements/filter?utf8=✓&prezzo=Crescente&regione=Lazio&categoria=Arredamento&place=&distance_range=50&commit=Applica+filtri")
+  elsif v == "contatti"
+    expect(page).to have_current_path("/contatti")  
   end
 end
+
+When (/^I write (.*) to (.*)$/) do |a,b|
+  fill_in(''+b, with: a)
+end
+
+When (/^I select (.*) from (.*)$/) do |a,b|
+  find('#'+b).find("option[value='"+a+"']").select_option
+end
+
 
 
   

@@ -47,3 +47,8 @@ Feature: Categorie
     Given I am on the home page
     When I click on arredamento link
     Then I should be on arredamento page
+    
+  Scenario: Elettronica
+    Given I am on the home page
+    When I click on elettronica link
+    Then I should be on elettronica page
