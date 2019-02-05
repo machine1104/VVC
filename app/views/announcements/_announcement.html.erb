@@ -13,8 +13,12 @@
       </h3>
       <span class="content">
         <%= announcement.categoria %><br>
-        <%= announcement.descrizione %><br>
-        <%= announcement.prezzo %> €<br>
+        <% if announcement.descrizione.length > 350 %>
+          <%= announcement.descrizione[0,350] %>...<br>
+        <% else %>
+          <%= announcement.descrizione %><br>
+        <% end %>
+        <%= number_with_precision(announcement.prezzo, precision: 2) %> €<br>
       </span>
       <span class="timestamp"> Pubblicato
         <%= time_ago_in_words(announcement.created_at)%> fa.

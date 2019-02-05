@@ -8,7 +8,7 @@ class CreateAnnouncements < ActiveRecord::Migration[5.1]
       t.string :posizione
       t.string :email
       t.string :telefono
-      t.float :prezzo
+      t.decimal :prezzo, precision: 5, scale: 2
 
       t.timestamps
     end

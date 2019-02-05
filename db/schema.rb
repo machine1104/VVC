@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20190202165321) do
     t.string "posizione"
     t.string "email"
     t.string "telefono"
-    t.float "prezzo"
+    t.decimal "prezzo", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "immagine_1"
@@ -91,4 +91,5 @@ ActiveRecord::Schema.define(version: 20190202165321) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 end

@@ -21,6 +21,12 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
+          <% if !@announcement.immagine_1? && !@announcement.immagine_2? && !@announcement.immagine_3? &&
+          !@announcement.immagine_4? && !@announcement.immagine_5? %>
+            <div class="carousel-item active">
+            <%= image_tag 'immagine-non-disponibile.png', class:"d-block w-100", alt:"immagine non disponibile"%>
+          </div>
+          <% end %>
           <% if @announcement.immagine_1? %>
           <div class="carousel-item active">
             <%= image_tag @announcement.immagine_1.url, class:"d-block w-100", alt:"immagine_1" if @announcement.immagine_1? %>
@@ -69,7 +75,7 @@
         </li>
       </ul>
       <h3>
-        <%= @announcement.prezzo %> € </h3>
+        <%= number_with_precision(@announcement.prezzo, precision: 2) %> € </h3>
     </div>
   </div>
   <!-- /.row -->

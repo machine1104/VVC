@@ -108,8 +108,10 @@
     </div>
   </div>
   <!--annunci recenti-->
-  <div class="row title" >
-    Annunci recenti         
+  <div class="row" >
+    <div class="col title">
+      Annunci recenti
+    </div>       
   </div>
   <div class="row justify-content-start" >
     <% if @announcements.empty? %>
@@ -130,7 +132,7 @@
               <h6>Proprietario: <%= get_username(ann.user_id) %> </h6>
             </div>
             <div class="col-5">
-              <h6><%= ann.prezzo %>0 €</h6>
+              <h6><%= number_with_precision(ann.prezzo, precision: 2) %> €</h6>
             </div>
           </div>
         </div>
