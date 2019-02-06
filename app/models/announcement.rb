@@ -19,6 +19,7 @@ class Announcement < ApplicationRecord
   validates :categoria, presence: true
   validates :prezzo, presence: true
   validates :email, presence: true
+  validates :posizione, presence: true
 
   def self.filter(prezzo, regione, categoria)
     return self unless prezzo.present? || regione.present? || categoria.present?
