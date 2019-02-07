@@ -11,8 +11,7 @@ class AnnouncementsController < ApplicationController
   def create
     @announcement = current_user.announcements.build(announcement_params)
     if @announcement.save
-      flash[:success] = 'Annuncio creato!'
-      redirect_to user_miei_annunci_path
+      redirect_to user_announcement_path(current_user.id, @announcement.id)
     else
       render :new
     end

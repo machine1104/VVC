@@ -6,7 +6,7 @@ FactoryBot.define do
     f.titolo { "Playstation 4 500GB" }
     f.categoria { "Elettronica" }
     f.descrizione { "Ps4 vecchia ma non troppo, stagionata!" }
-    f.posizione { "posizione" }
+    f.posizione { "Roma" }
     f.email { "pincopallo@gmail.com" }
     f.telefono { "3357416854" }
     f.prezzo { 129 }

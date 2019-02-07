@@ -1,7 +1,7 @@
 Feature: Signup
   As a guest
   I want to create an account
-  So that i can use all site's services
+  So that I can use all site's services
   
   Scenario: User successfully register
     Given I am a guest
