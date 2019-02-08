@@ -26,6 +26,7 @@ And(/^I have an announcement$/) do
   @ad = FactoryBot.build(:announcement)
   create_announcement(@ad)
   click_button('Crea annuncio')
+  @ann_count = Announcement.count
 end
 
 And(/^I insert valid informations$/) do
@@ -113,6 +114,8 @@ end
 When(/^I click on (.*) link$/) do |value|
   if value == 'logo'
     page.find_link('Vieni Vedi Compra!').click
+  elsif value == 'Elimina'
+    click_link(value)
   elsif value == 'contatti'
     page.find_link('Contatti').click
   elsif value == 'motori'
@@ -222,7 +225,7 @@ Then(/^I should be on (.*) page$/) do |v|
 end
 
 When(/^I write (.*) to (.*)$/) do |a, b|
-  fill_in('' + b, with: a)
+  fill_in(b, with: a)
 end
 
 When(/^I select (.*) from (.*)$/) do |a, b|
@@ -237,4 +240,16 @@ And(/^It show the uploaded image$/) do
   id = current_path.split('/').last
   tag = "//img[@src='/uploads/announcement/immagine_1/"+id+"/nintendo-switch-lead-09b9f70fe7b0eb176c1ce49cdaed62a21.jpg']"
   expect(page).to have_xpath(tag)
+end
+
+Then(/^Announcement should be deleted$/) do
+  expect(Announcement.count).to eq(@ann_count - 1)
+end
+
+When(/^I select a region$/) do
+  find('#regione').find(:xpath, 'option[8]').select_option
+end
+
+Then(/^I should find the announcemnt in that region$/) do
+  expect(current_url).to have_content('regione=Lazio')
 end

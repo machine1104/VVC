@@ -1,7 +1,7 @@
-Feature: Categorie
-  As an user
-  I want to click on categorie
-  So that I can see categorie announcements
+Feature: Search by category
+  As a generic user
+  I want to search by category
+  So that I can find specific announcemnt's categories
 
   Scenario: Abbigliamento
     Given I am on the home page

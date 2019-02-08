@@ -1,4 +1,4 @@
-Feature: nearby
+Feature: Search nearby
   As an user
   I want to put my location
   So that I can find announcements near it
