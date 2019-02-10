@@ -9,6 +9,12 @@ User.create!(username: 'pincopallo',
              password: 'password',
              password_confirmation: 'password',
              admin: false)
+             
+User.create!(username: 'utentetest',
+             email: 'utentetest@gmail.com',
+             password: 'password',
+             password_confirmation: 'password',
+             admin: false)
 
 30.times do |_n|
   username = Faker::Internet.user_name(5..20)
@@ -174,4 +180,23 @@ end
                        email: email,
                        telefono: telefono,
                        prezzo: prezzo)
+end
+
+@annunci = Announcement.all
+@annunci.each do |p|
+  Question.create!(
+      contenuto: "Ha segni di usura?",
+      user_id: 3,
+      announcement_id: p.id
+    )
+end
+
+@domande = Question.all
+@domande.each do |p|
+  Answer.create!(
+      contenuto: "è immacolato",
+      user_id: 2,
+      announcement_id: p.announcement_id,
+      question_id: p.id
+    )
 end

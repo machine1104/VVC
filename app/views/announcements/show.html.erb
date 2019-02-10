@@ -128,7 +128,7 @@
         </div>
         <div class="col">
           <h3 style="text-align: right">
-            Prezzo: <%= number_with_precision(@announcement.prezzo, precision: 2) %> € </h3>
+            Prezzo: <%= number_with_precision(@announcement.prezzo, precision: 2) %>€</h3>
         </div>
       </div>
       <div class="row">
@@ -202,7 +202,7 @@
   <div class="row">
     <div class="col">
       <% if user_signed_in? %>
-        <% if current_user.id != @announcement.user_id %>
+        <% if current_user.id != @announcement.user_id || current_user.admin? %>
           <%= form_for @question, url: questions_path do |f| %>
             <%= hidden_field_tag 'announcement_id', @announcement.id %>
             <%= hidden_field_tag 'user_id', current_user.id %>

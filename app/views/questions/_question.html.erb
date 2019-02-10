@@ -6,7 +6,7 @@
 <% if !ans.nil? %>
   <div class="row-answer">
     Risposta: <%= ans.contenuto %>
-    <% if user_signed_in? && current_user.id == @announcement.user_id %>
+    <% if user_signed_in? && (current_user.id == @announcement.user_id || current_user.admin?) %>
     <%= link_to "Elimina risposta", answer_path(ans.id), method: :delete,
                                             data: { confirm: "Vuoi davvero eliminare la risposta?" } %>
     <% end %> </br></br>
@@ -29,7 +29,7 @@
     Nessuna risposta.
   </div>
 <% end %>
-<% if user_signed_in? && current_user.id == question.user_id %>
+<% if user_signed_in? && (current_user.id == question.user_id || current_user.admin?)%>
 <%= link_to "Elimina domanda", question_path(question.id), method: :delete,
                                             data: { confirm: "Vuoi davvero eliminare la domanda?" } %>
 <% end %> </br></br>
