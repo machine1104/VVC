@@ -186,7 +186,7 @@ end
 @annunci.each do |p|
   Question.create!(
       contenuto: "Ha segni di usura?",
-      user_id: 3,
+      user_id: 2,
       announcement_id: p.id
     )
 end
@@ -195,7 +195,7 @@ end
 @domande.each do |p|
   Answer.create!(
       contenuto: "è immacolato",
-      user_id: 2,
+      user_id: Announcement.find(p.announcement_id).user_id,
       announcement_id: p.announcement_id,
       question_id: p.id
     )
