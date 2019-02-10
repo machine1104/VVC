@@ -6,6 +6,7 @@ $gray-medium-light: #eaeaea;
 $lite: #5A8EAD;
 $dark: #114C6F;
 $gray-light: lighten(#000, 46.7%) !default;
+$size: 24px;
 
 
 @mixin box_sizing {
@@ -571,4 +572,21 @@ form {
 
 .ul {
   list-style-type: none;
+}
+
+.ssb-icon {
+  background-size: $size $size;
+  height: $size;
+  width: $size;
+}
+
+#report-icon {
+  width: 28px;
+  height: 30px;
+  padding-right: 0px;
+  padding-left: 0px;
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }

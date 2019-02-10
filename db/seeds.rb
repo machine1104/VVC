@@ -153,7 +153,7 @@ end
 2.times do |_n|
   user_id = 20
   titolo = Faker::Commerce.product_name
-  categoria = 'Giocattoli'
+  categoria = 'Attrezzature'
   descrizione = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis pulvinar libero at volutpat.
                  Suspendisse potenti. Nullam malesuada mollis dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                  Integer leo dolor, vehicula sed sem egestas, suscipit semper magna. Nullam lacus nunc, tincidunt sed ultricies eu, luctus sed elit.

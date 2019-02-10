@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Modifica profilo</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
@@ -54,13 +54,11 @@
 
   
 
-  <div class="actions">
-    <%= f.submit "Update", class: "btn btn-form" %>
+  <div class="actions center">
+    <%= f.submit "Aggiorna", class: "btn btn-form" %>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Delete account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-form" %></p>
-
-<%= link_to "Indietro", :back, class: "btn btn-form", data: { turbolinks: false } %>
+<div class="center"><%= button_to "Elimina profilo", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-form" %></p>
+<div class="center">
+  <%= link_to "Indietro", :back, class: "btn btn-form", data: { turbolinks: false } %>
+</div>

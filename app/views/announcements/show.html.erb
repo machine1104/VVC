@@ -13,7 +13,7 @@
     <%= @announcement.titolo %>
   </h1>
   <div class="row justify-content-around align-items-center">
-    <div class="col-4">
+    <div class="col-5">
       <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -63,28 +63,30 @@
         </a>
       </div>
     </div>
-    <div class="col-4">
-      <h3 class="my-3">Descrizione prodotto</h3>
-      <p>
-        <%= @announcement.descrizione %>
+    <div class="col-6">
+      <h3 class="my-3">Descrizione prodotto</h3></br>
+      <p style="text-align: justify">
+        <%= @announcement.descrizione %></br></br>
       </p>
       <h3 class="my-3">Dettagli prodotto</h3>
       <ul>
         <li>Categoria:
           <%= @announcement.categoria %>
         </li>
+        <li>
+          Pubblicato: <%= time_ago_in_words(@announcement.created_at)%> fa
+        </li>
+        <li>
+          Proprietario: <%= @announcement.user.username %>
+        </li>
       </ul>
-      <h3>
-        <%= number_with_precision(@announcement.prezzo, precision: 2) %> € </h3>
-    </div>
-  </div>
-  <!-- /.row -->
-  
-  <div class="col-4">
-    <%= social_share_button_tag(@announcement.titolo, url: request.original_url, desc: @announcement.descrizione) %>
-  </div>
-  <div class="row">
-    <%= button_tag image_tag('report.png'), type: "button", data: { toggle: "modal", target: "#reportModal" }, id: "report-icon"%>
+      </br></br>
+      <div class="row align-items-center justify-content-around">
+        <div class="col-4">
+          <%= social_share_button_tag(@announcement.titolo, url: request.original_url, desc: @announcement.descrizione) %>
+        </div>
+        <div class="col">
+          Segnala: <%= button_tag image_tag('report.png'), type: "button", data: { toggle: "modal", target: "#reportModal" }, id: "report-icon"%>
       <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -123,10 +125,19 @@
           </div>
         </div>
       </div>
+        </div>
+        <div class="col">
+          <h3 style="text-align: right">
+            Prezzo: <%= number_with_precision(@announcement.prezzo, precision: 2) %> € </h3>
+        </div>
+      </div>
+      <div class="row">
     <% if user_signed_in? %>
-      <button type="button" class="btn btn-form" data-toggle="modal" data-target="#exampleModal">
-        Mostra contatti
-      </button>
+      <div class="col center">
+        <button type="button" class="btn btn-form" data-toggle="modal" data-target="#exampleModal">
+          Mostra contatti
+        </button>
+      </div>
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -147,9 +158,11 @@
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-form" data-toggle="modal" data-target="#modelMap">
-        Mostra mappa
-      </button>
+      <div class="col center">
+        <button type="button" class="btn btn-form" data-toggle="modal" data-target="#modelMap">
+          Mostra mappa
+        </button>
+      </div>
       <div class="modal fade" id="modelMap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -172,6 +185,10 @@
     <% end %>
     <br><br>
   </div>
+    </div>
+  </div>
+  <!-- /.row -->
+  
   <h2>Domande e Risposte</h2>
   <div class="row justify-content-center align-items-center">
     <div class="col">
@@ -190,7 +207,7 @@
             <%= hidden_field_tag 'announcement_id', @announcement.id %>
             <%= hidden_field_tag 'user_id', current_user.id %>
               <%= f.label "Fai una domanda:" %><br/>
-              <%= f.text_area :contenuto, autofocus: true, autocomplete: "contenuto", class: "form-control form-control-sm" %>
+              <%= f.text_area :contenuto, autocomplete: "contenuto", class: "form-control form-control-sm" %>
               <div class="center">
                 <%= f.submit "Crea domanda", class: "btn btn-form" %>
               </div>     

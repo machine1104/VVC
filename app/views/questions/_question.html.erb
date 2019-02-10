@@ -7,9 +7,9 @@
   <div class="row-answer">
     Risposta: <%= ans.contenuto %>
     <% if user_signed_in? && current_user.id == @announcement.user_id %>
-    <%= link_to "Elimina", answer_path(ans.id), method: :delete,
+    <%= link_to "Elimina risposta", answer_path(ans.id), method: :delete,
                                             data: { confirm: "Vuoi davvero eliminare la risposta?" } %>
-                                            <% end %>
+    <% end %> </br></br>
   </div>
 <% elsif user_signed_in? && current_user.id == @announcement.user_id %>
   <div class="row-answer">
@@ -30,8 +30,8 @@
   </div>
 <% end %>
 <% if user_signed_in? && current_user.id == question.user_id %>
-<%= link_to "Elimina", question_path(question.id), method: :delete,
+<%= link_to "Elimina domanda", question_path(question.id), method: :delete,
                                             data: { confirm: "Vuoi davvero eliminare la domanda?" } %>
-<% end %>
+<% end %> </br></br>
       
           

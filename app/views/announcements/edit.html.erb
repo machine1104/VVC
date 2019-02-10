@@ -1,4 +1,4 @@
-<h2>Edit
+<h2>Modifica annuncio
   <%= @annoucement.to_s.humanize %>
 </h2>
 
@@ -74,9 +74,11 @@
   <%= f.number_field :prezzo, step: :any, autofocus: true, autocomplete: "prezzo", class: "form-control form-control-sm" %>
 </div>
 
-<div class="actions">
+<div class="actions center">
   <%= f.submit "Aggiorna", class: "btn btn-form" %>
 </div>
 <% end %>
 
-<%= link_to "Indietro", :back, class: "btn btn-form" %>
+<div class="center">
+  <%= link_to "Indietro", :back, class: "btn btn-form center" %>
+</div>
