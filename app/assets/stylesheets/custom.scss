@@ -590,3 +590,10 @@ form {
     height: 24px;
   }
 }
+
+.link-title {
+  color: $dark;
+  &:hover {
+    color: $lite;
+  }
+}

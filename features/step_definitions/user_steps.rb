@@ -108,7 +108,7 @@ Given(/^I am a registered user logged in$/) do
   click_button('Registrati')
   visit new_user_session_path
   login(@user)
-  click_button('Log in')
+  click_button('Login')
 end
 
 When(/^I click on (.*) link$/) do |value|

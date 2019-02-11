@@ -9,7 +9,7 @@
     </div>
     <div class="col-5">
       <h4>
-          <%= link_to announcement.titolo, announcement_path(announcement.id), data: { turbolinks: false } %><br><br>
+          <%= link_to announcement.titolo, announcement_path(announcement.id), data: { turbolinks: false }, class: "link-title"%><br><br>
       </h4>
       <span class="content">
         Categoria: <%= announcement.categoria %><br><br>
@@ -29,8 +29,8 @@
           Prezzo: <%= number_with_precision(announcement.prezzo, precision: 2) %> €
         </p>
       </span>
-      <% if user_signed_in? %>
-        <% if current_user?(announcement.user) %>
+      <% if user_signed_in?%>
+        <% if current_user?(announcement.user) || current_user.admin?%>
           <% announcement %>
           <%= link_to "Elimina", user_announcement_path(current_user.id, announcement.id), method: :delete,
                                             data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
@@ -41,11 +41,6 @@
           <% else %>
             <%= link_to "Aggiungi ai preferiti", announcement_favorite_path(announcement.id), method: :post %>
           <% end %>
-        <% end %>
-        <% if current_user.admin? %>
-          <%= link_to "Elimina", user_announcement_path(announcement.user_id, announcement.id), method: :delete,
-                                            data: { confirm: "Vuoi davvero eliminare l'annuncio?" } %>
-          <%= link_to "Modifica", edit_user_announcement_path(announcement.user_id, announcement.id), method: :get %>
         <% end %>
       <% end %>
     </div>

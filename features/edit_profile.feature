@@ -7,7 +7,7 @@ Feature: Edit Profile
     Given I am a registered user logged in
     And I am on the edit page
     When I edit my profile
-    And I click on Update button
+    And I click on Aggiorna button
     Then Profile should be updated
     
     

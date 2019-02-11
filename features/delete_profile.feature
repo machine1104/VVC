@@ -6,7 +6,7 @@ Feature: Delete Profile
   Scenario: Delete
     Given I am a registered user logged in
     And I am on the edit page
-    When I click on Delete account button
+    When I click on Elimina profilo button
     Then Profile should be deleted
   
     

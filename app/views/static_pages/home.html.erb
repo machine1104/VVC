@@ -127,7 +127,7 @@
           <% else %>
             <%= image_tag ann.immagine_1.url, class: "img-home" if ann.immagine_1? %> </br></br>
           <% end %>
-          <h4> <%= link_to ann.titolo.capitalize, announcement_path(ann.id), data: { turbolinks: false } %> </h4></br>
+          <h4> <%= link_to ann.titolo.capitalize, announcement_path(ann.id), data: { turbolinks: false }, class: "link-title"%> </h4></br>
           <div class="row justify-content-between">
             <div class="col">
               <h6>Proprietario: <%= get_username(ann.user_id) %> </h6>
